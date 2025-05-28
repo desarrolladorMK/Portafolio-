@@ -1,27 +1,71 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import "./Header.css"; // Importa el archivo CSS para estilos
+import './Header.css';
 
 const Header = () => {
+  const bannerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (bannerRef.current) {
+        const scrollY = window.scrollY;
+        const brightness = Math.max(1 - scrollY / 500, 0);
+        bannerRef.current.style.filter = `brightness(${brightness})`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header className="header">
-      {/* Logo */}
-      <div className="logo">
-        <Link to="/">
-          <img 
-            src="/logo.jpg" 
-            alt="StarDevs Logo" 
-            className="logo-img"  
-          />
-        </Link>
-      </div>
+      {/* Banner con efecto de oscurecimiento */}
+      <div
+        ref={bannerRef}
+        className="banner"
+        style={{
+          backgroundImage: `url(/banner.jpg)`, // Imagen desde public/
+        }}
+      >
+        {/* Contenido del banner */}
+        <div className="banner-content">
+          {/* Logo */}
+          <div className="logo">
+            <Link to="/">
+              <img src="/logoDV.png" alt="StarDevs Logo" className="logo-img" />
+            </Link>
+          </div>
 
-      {/* Navigation Menu */}
-      <nav className="nav">
-        <Link to="/" className="nav-link">Inicio</Link>
-        <Link to="/nosotros" className="nav-link">Nosotros</Link>
-        <Link to="/servicios" className="nav-link">Servicios</Link>
-        <Link to="/contactanos" className="nav-link">Contáctanos</Link>
-      </nav>
+          {/* Ícono de menú hamburguesa */}
+          <div className="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          {/* Texto principal */}
+          <div className="banner-text">
+            <h1 className="banner-title">STARDEVS</h1>
+            <p className="banner-subtitle">
+              Soluciones de Software y Consultoría Especializada
+            </p>
+          </div>
+
+          {/* Botones laterales */}
+          <nav className="sidebar-nav">
+            <Link to="/nosotros" className="sidebar-link">
+              <span className="dot">•</span> Nosotros
+            </Link>
+            <Link to="/servicios" className="sidebar-link">
+              <span className="dot">•</span> Servicios
+            </Link>
+            <Link to="/contactanos" className="sidebar-link">
+              <span className="dot">•</span> Contáctanos
+            </Link>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };
