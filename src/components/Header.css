@@ -1,0 +1,331 @@
+/* Propuesta 1: Paleta "Tech Serenity"
+Descripción: Una paleta tranquila con tonos azules y grises, que transmite confianza, profesionalismo y tecnología avanzada.
+Colores:
+Azul Marino: #1E3A8A (fondo principal)
+Azul Claro: #60A5FA (enlaces activos o acentos)
+Blanco Suave: #F9FAFB (texto principal)
+Gris Claro: #D1D5DB (detalles o separadores)
+Cian Suave: #22D3EE (hover effects o call-to-action)
+Tipografía:
+Sora: Sans-serif moderna y geométrica, ideal para un look tecnológico limpio. (Google Fonts: https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap)
+Complementaria: Overpass: Sans-serif profesional, perfecta para textos secundarios. (Google Fonts: https://fonts.googleapis.com/css2?family=Overpass:wght@400;500&display=swap) */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500&display=swap');
+
+.header {
+  background-color: #1E3A8A;
+  color: #F9FAFB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 3rem;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #F9FAFB;
+  text-decoration: none;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #22D3EE;
+}
+
+.nav-link.active {
+  color: #60A5FA;
+  font-weight: 600;
+  border-bottom: 2px solid #60A5FA;
+} */
+
+
+/* Propuesta 2: Paleta "Cosmic Innovation"
+Descripción: Una paleta con tonos oscuros y acentos brillantes que evocan un tema espacial, ideal para una empresa innovadora como StarDevs.
+Colores:
+Negro Espacial: #0B0C10 (fondo principal)
+Púrpura Cósmico: #6B21A8 (enlaces activos o acentos)
+Blanco Brillante: #E5E7EB (texto principal)
+Gris Oscuro: #374151 (detalles o separadores)
+Rosa Neón: #F472B6 (hover effects o call-to-action)
+Tipografía:
+Orbitron: Futurista y tecnológica, perfecta para títulos o navegación. (Google Fonts: https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap)
+Complementaria: Barlow: Sans-serif moderna, ideal para textos largos. (Google Fonts: https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap');
+
+.header {
+  background-color: #0B0C10;
+  color: #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 3rem;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #E5E7EB;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #F472B6;
+}
+
+.nav-link.active {
+  color: #6B21A8;
+  font-weight: 700;
+  border-bottom: 2px solid #6B21A8;
+}
+
+
+/* Propuesta 3: Paleta "Fresh Code"
+Descripción: Una paleta fresca con tonos verdes y blancos, que transmite crecimiento, modernidad y un enfoque innovador en tecnología.
+Colores:
+Verde Oscuro: #065F46 (fondo principal)
+Verde Claro: #34D399 (enlaces activos o acentos)
+Blanco Puro: #FFFFFF (texto principal)
+Gris Claro: #E5E7EB (detalles o separadores)
+Amarillo Suave: #FCD34D (hover effects o call-to-action)
+Tipografía:
+Chivo: Sans-serif elegante y moderna, ideal para marcas tecnológicas. (Google Fonts: https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap)
+Complementaria: Hind: Sans-serif limpia, perfecta para textos secundarios. (Google Fonts: https://fonts.googleapis.com/css2?family=Hind:wght@400;500&display=swap) */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500&display=swap');
+
+.header {
+  background-color: #065F46;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 3rem;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: 'Chivo', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #FCD34D;
+}
+
+.nav-link.active {
+  color: #34D399;
+  font-weight: 700;
+  border-bottom: 2px solid #34D399;
+} */
+
+/* Propuesta 4: Paleta "Midnight Glow"
+Descripción: Una paleta con tonos oscuros y acentos brillantes, que combina elegancia con un toque de modernidad, ideal para destacar servicios tecnológicos.
+Colores:
+Azul Medianoche: #1E293B (fondo principal)
+Dorado Suave: #FBBF24 (enlaces activos o acentos)
+Blanco Hielo: #E2E8F0 (texto principal)
+Gris Oscuro: #4B5563 (detalles o separadores)
+Cian Brillante: #06B6D4 (hover effects o call-to-action)
+Tipografía:
+Outfit: Sans-serif moderna y elegante, con un diseño limpio. (Google Fonts: https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap)
+Complementaria: Quicksand: Sans-serif suave y amigable, para un contraste ligero. (Google Fonts: https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap) */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+.header {
+  background-color: #1E293B;
+  color: #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 3rem;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #06B6D4;
+}
+
+.nav-link.active {
+  color: #FBBF24;
+  font-weight: 600;
+  border-bottom: 2px solid #FBBF24;
+} */
+
+/* propuesta 5: Moderna y Profesional */
+/* Tipografías recomendadas */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap');
+
+.header {
+  background-color: #0A192F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #E5E5E5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00A8E8;
+} */
+
+
+
+/* propuesta 6: Futurista e Innovadora */
+/* Tipografías recomendadas */
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@500;700&display=swap');
+
+.header {
+  background-color: #0D0D0D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #F5F5F5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00FFAB;
+} */
+
+ /* propuesta 7: Minimalista y Tecnológica */
+ /* Tipografías recomendadas */
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+.header {
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #E0E0E0;
+  font-family: 'Inter', sans-serif;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #4B6587;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1E1E1E;
+}
+ */
