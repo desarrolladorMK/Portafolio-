@@ -54,15 +54,15 @@ const Header = () => {
 
           {/* Botones laterales */}
           <nav className="sidebar-nav">
-            <Link to="/nosotros" className="sidebar-link">
+            <a href="#nosotros" className="sidebar-link">
               <span className="dot">•</span> Nosotros
-            </Link>
-            <Link to="/servicios" className="sidebar-link">
+            </a>
+            <a href="#servicios" className="sidebar-link">
               <span className="dot">•</span> Servicios
-            </Link>
-            <Link to="/contactanos" className="sidebar-link">
+            </a>
+            <a href="#contactanos" className="sidebar-link">
               <span className="dot">•</span> Contáctanos
-            </Link>
+            </a>
           </nav>
         </div>
       </div>

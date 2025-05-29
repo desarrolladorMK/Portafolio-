@@ -1,0 +1,330 @@
+/* Contenedor principal */
+.carousel-servicios {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.carousel-servicios.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.carousel-servicios.visible .carousel-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navegación con rombos */
+.tabs-diamantes {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+.tab-diamante {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-servicios.visible .tab-diamante {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-servicios.visible .tab-diamante:nth-child(1) { transition-delay: 0.3s; }
+.carousel-servicios.visible .tab-diamante:nth-child(2) { transition-delay: 0.4s; }
+.carousel-servicios.visible .tab-diamante:nth-child(3) { transition-delay: 0.5s; }
+
+.icono-rombo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo del rombo */
+.rombo {
+  width: 48px;
+  height: 48px;
+  background: #000000;
+  border: 1px solid #333333;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-diamante:not(.activo):hover .rombo {
+  transform: rotate(45deg) scale(1.1);
+  background: #222;
+}
+
+.icono {
+  transform: rotate(-45deg);
+  font-size: 1.4rem;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-diamante:not(.activo):hover .icono {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.flecha-rombo {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ff00ff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-diamante.activo .flecha-rombo {
+  opacity: 1;
+  animation: bounce 0.6s ease-in-out infinite;
+}
+
+.nombre-tab {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000000;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado activo */
+.tab-diamante.activo .rombo {
+  background: #333333;
+  border-color: #333333;
+  width: 70px;
+  height: 70px;
+}
+
+.tab-diamante.activo .icono {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.tab-diamante.activo .nombre-tab {
+  opacity: 0;
+  margin-top: 0;
+}
+
+/* Contenido del carrusel - SECCIÓN MODIFICADA */
+.carousel-contenido {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.carousel-panel {
+  flex: 0 0 100%;
+  min-width: 100%;
+  min-height: 300px;
+  padding: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.carousel-panel[aria-hidden="true"] {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.carousel-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+.carousel-texto {
+  text-align: left;
+  flex: 1;
+  min-width: 300px;
+}
+
+.carousel-texto h2 {
+  font-size: 1.8rem;
+  color: #000000;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.carousel-servicios.visible .carousel-texto h2 {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.carousel-texto p {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s;
+}
+
+.carousel-servicios.visible .carousel-texto p {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.carousel-img {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s;
+}
+
+.carousel-servicios.visible .carousel-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .carousel-servicios {
+    padding: 40px 15px;
+  }
+  
+  .carousel-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .tabs-diamantes {
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .carousel-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .carousel-texto {
+    text-align: center;
+    min-width: auto;
+  }
+
+  .carousel-img {
+    margin-top: 20px;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .tab-diamante .rombo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tab-diamante .icono {
+    font-size: 1.2rem;
+  }
+
+  .tab-diamante .nombre-tab {
+    font-size: 0.8rem;
+  }
+
+  .tab-diamante.activo .rombo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tab-diamante.activo .icono {
+    font-size: 1.8rem;
+  }
+
+  .flecha-rombo {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs-diamantes {
+    gap: 10px;
+  }
+  
+  .carousel-title {
+    font-size: 1.8rem;
+  }
+  
+  .carousel-texto h2 {
+    font-size: 1.5rem;
+  }
+}
