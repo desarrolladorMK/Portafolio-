@@ -317,3 +317,9 @@
   color: #555;
   line-height: 1.6;
 }
+
+.servicios-section {
+  margin-top: 20vh;
+  padding-top: 4rem;
+  min-height: 100vh;
+}
