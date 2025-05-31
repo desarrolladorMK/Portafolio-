@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ServiciosCarousel from '../components/ServiciosCarousel';
 import Proyectos from '../components/Proyectos';
+import Contactanos from '../components/Contactanos';
 import { useEffect, useRef } from 'react';
 import './Home.css';
 
@@ -90,6 +91,11 @@ const Home = () => {
         {/* Proyectos */}
       <div id="proyectos">
         <Proyectos />
+      </div>
+
+        {/* Contactanos */}
+      <div id="contactanos">
+        <Contactanos />
       </div>
 
       {/* Habilidades y Tecnologías */}
