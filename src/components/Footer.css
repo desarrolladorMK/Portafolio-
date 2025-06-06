@@ -22,6 +22,8 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  position: relative;
+  top: 7rem;
 }
 
 .footer.visible .footer-content {

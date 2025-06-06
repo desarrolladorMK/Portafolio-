@@ -7,6 +7,8 @@
   font-family: "Segoe UI", Arial, sans-serif;
   color: #fff;
   border: 2px solid #233554;
+  position: relative;
+    top: 5rem;
 }
 
 .contactanos h1 {

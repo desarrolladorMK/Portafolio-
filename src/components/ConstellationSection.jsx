@@ -29,9 +29,9 @@ const ConstellationSection = ({ constellationRef }) => {
       id="nosotros"
     >
       <h1 className="section-title">Bienvenidos a stelarCode</h1>
+
       <p className="intro-subtitle">
-        Cada solución que creamos es una estrella conectada en tu universo
-        digital.
+       En stelarCode, somos un equipo apasionado de desarrolladores dedicados a convertir tus ideas en realidades digitales. Con creatividad, tecnología y compromiso, transformamos tus sueños en soluciones innovadoras que brillan como estrellas en tu universo. No hay límites para lo que podemos lograr juntos: si lo imaginas, nosotros lo creamos.
       </p>
 
       <div className="constellation-container">

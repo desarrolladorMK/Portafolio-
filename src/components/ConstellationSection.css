@@ -17,11 +17,37 @@
 }
 
 .intro-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #b2becd;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   opacity: 0;
   animation: fadeIn 1s ease-out 0.2s forwards;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 25px;
+  border: 1px solid #233554; /* Borde sutil para destacar */
+  border-radius: 8px;
+  overflow-wrap: break-word;
+  background: rgba(10, 25, 47, 0.95); /* Fondo para coherencia con el formulario */
+  transition: box-shadow 0.3s ease;
+}
+.intro-subtitle:hover {
+  box-shadow: 0 4px 16px #64ffda33; /* Sombra al pasar el ratón */
+}
+@media (max-width: 600px) {
+  .intro-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 50px;
+    padding: 10px 15px;
+    max-width: 95vw;
+  }
 }
 
 .constellation-container {
