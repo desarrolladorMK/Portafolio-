@@ -109,7 +109,7 @@
 
 /* HABILIDADES Y TECNOLOGÍAS */
 .skills-section {
-  background-color: #f5f6f5;
+  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
   padding: 40px 20px;
   text-align: center;
 }
@@ -117,8 +117,9 @@
 .skills-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #333;
+  color: #64ffda;
   margin-bottom: 40px;
+  text-shadow: 0 0 12px #64ffda88;
 }
 
 .skills-grid {
@@ -161,54 +162,6 @@
   line-height: 1.5;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .constellation-lines {
-    display: none;
-  }
-
-  .constellation-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
-  }
-
-  .star-node {
-    position: static;
-    transform: none;
-  }
-
-  .star-card {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .skills-title {
-    font-size: 2rem;
-  }
-
-  .intro-title {
-    font-size: 2.2rem;
-  }
-
-  .intro-subtitle {
-    font-size: 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Animaciones generales */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
 .skills-grid-alt {
   display: flex;
   flex-wrap: wrap;
@@ -218,12 +171,19 @@
 }
 
 .skills-card {
-  background: #ffffff;
+  background: rgba(10, 25, 47, 0.85);
   border-radius: 12px;
   padding: 20px 30px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   width: 300px;
   text-align: center;
+  border: 2px solid #233554;
+  color: #fff;
+}
+
+.skills-card:hover {
+  border-color: #64ffda;
+  box-shadow: 0 0 32px 0 #64ffda66;
 }
 
 .skills-category {
@@ -251,6 +211,7 @@
   width: 36px;
   height: 36px;
   margin-bottom: 6px;
+  filter: drop-shadow(0 0 6px #64ffda);
 }
 
 /* Responsive */
@@ -324,27 +285,30 @@
   min-height: 100vh;
 }
 
-
+/* Contactanos */
 .contactanos {
   max-width: 400px;
   margin: 40px auto;
   padding: 32px 24px;
-  background: #fff;
+  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
   border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  box-shadow: 0 2px 16px #64ffda33;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #fff;
+  border: 2px solid #233554;
 }
 
 .contactanos h1 {
   margin-bottom: 10px;
   font-size: 2rem;
-  color:  #1976d2;
+  color: #64ffda;
   text-align: center;
+  text-shadow: 0 0 12px #64ffda88;
 }
 
 .contactanos p {
   margin-bottom: 24px;
-  color: #444;
+  color: #b2becd;
   text-align: center;
 }
 
@@ -352,7 +316,7 @@
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #333;
+  color: #fff;
 }
 
 .contact-form input,
@@ -360,18 +324,19 @@
   width: 100%;
   padding: 10px 12px;
   margin-bottom: 18px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #233554;
   border-radius: 6px;
   font-size: 1rem;
-  background: #f9f9f9;
+  background: #0a192f;
+  color: #fff;
   transition: border-color 0.2s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color:  #1976d2;
+  border-color: #64ffda;
   outline: none;
-  background: #fff;
+  background: #000;
 }
 
 .contact-form textarea {
@@ -382,8 +347,8 @@
 .contact-form button {
   width: 100%;
   padding: 12px;
-  background:  #1976d2;
-  color: #fff;
+  background: #64ffda;
+  color: #000;
   border: none;
   border-radius: 6px;
   font-size: 1.1rem;
@@ -393,5 +358,13 @@
 }
 
 .contact-form button:hover {
-  background: #283593;
+  background: #233554;
+  color: #64ffda;
+}
+
+/* Animaciones generales */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }

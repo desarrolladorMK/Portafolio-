@@ -1,6 +1,7 @@
 .proyectos-section {
   padding: 60px 20px;
-  background-color: #f5f5f5;
+  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
+  color: #fff;
   text-align: center;
 }
 
@@ -8,7 +9,8 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 40px;
-  color: #222;
+  color: #64ffda;
+  text-shadow: 0 0 12px #64ffda88;
 }
 
 .proyectos-grid {
@@ -20,10 +22,12 @@
 }
 
 .proyecto-card {
-  background: white;
+  background: rgba(10, 25, 47, 0.85);
+  border: 2px solid #233554;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  color: #fff;
+  box-shadow: 0 0 16px 0 #64ffda33;
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -31,6 +35,8 @@
 
 .proyecto-card:hover {
   transform: translateY(-5px);
+  border-color: #64ffda;
+  box-shadow: 0 0 32px 0 #64ffda66;
 }
 
 .proyecto-img img {
@@ -46,30 +52,31 @@
 
 .proyecto-info h2 {
   font-size: 1.3rem;
-  color: #000000;
+  color: #64ffda;
   margin-bottom: 10px;
 }
 
 .proyecto-info p {
   font-size: 0.95rem;
-  color: #444;
+  color: #fff;
   margin-bottom: 15px;
   line-height: 1.5;
 }
 
 .btn-ver {
   display: inline-block;
-  background: #000000;
-  color: white;
+  background: #64ffda;
+  color: #000;
   padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s;
 }
 
 .btn-ver:hover {
-  background: #ff00ff;
+  background: #233554;
+  color: #64ffda;
 }
 
 /* Modal */
@@ -89,8 +96,8 @@
 }
 
 .modal-content {
-  background: radial-gradient(circle at center, rgba(20, 20, 40, 0.95), rgba(0, 0, 0, 0.95));
-  background-image: url('/img/estrellas-bg.png'); /* Asegúrate de tener esta imagen de fondo con estrellas sutiles */
+  background: #000;
+  background-image: url("/img/estrellas-bg.png"); /* Asegúrate de tener esta imagen de fondo con estrellas sutiles */
   background-size: cover;
   background-position: center;
   padding: 30px;
@@ -100,19 +107,19 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   position: relative;
   text-align: left;
-  color: #ddd;
+  color: #fff;
   backdrop-filter: blur(4px);
 }
 
 .modal-content h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #58aaff;
+  color: #64ffda;
 }
 
 .modal-content p {
   font-size: 1rem;
-  color: #ccc;
+  color: #fff;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -125,7 +132,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #bbb;
+  color: #64ffda;
 }
 
 .modal-close:hover {
@@ -134,17 +141,18 @@
 
 .btn-ver {
   display: inline-block;
-  background: #1976d2;
-  color: white;
+  background: #64ffda;
+  color: #000;
   padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s;
 }
 
 .btn-ver:hover {
-  background: #125aa0;
+  background: #233554;
+  color: #64ffda;
 }
 
 .modal-img {
@@ -166,7 +174,7 @@
 
 .empresas-title {
   font-size: 1.8rem;
-  color: #333;
+  color: #64ffda;
   margin-bottom: 20px;
   font-weight: 600;
 }
