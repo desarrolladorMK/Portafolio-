@@ -30,6 +30,13 @@ const proyectos = [
     imagen: "/public/crediplas.png",
     link: "https://crediplas.com/",
   },
+   {
+    titulo: "E-Commerce ",
+    descripcion:
+      "Desarrollamos una plataforma de E-Commerce moderna y funcional que conecta tu negocio con el mundo digital. Diseñada con un enfoque limpio y atractivo, ofrece a los clientes una experiencia de compra intuitiva y fluida. Desde la navegación por categorías hasta la pasarela de pago segura, este proyecto combina diseño responsivo y rendimiento optimizado para adaptarse a cualquier dispositivo. Ideal para ampliar tu alcance y aumentar las ventas en línea de manera confiable y escalable.",
+    imagen: "/public/tienda.png",
+    link: "",
+  },
 ];
 
 const logosEmpresas = [

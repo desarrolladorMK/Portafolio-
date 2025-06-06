@@ -1,6 +1,5 @@
 .proyectos-section {
   padding: 60px 20px;
-  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
   color: #fff;
   text-align: center;
   position: relative;
@@ -132,6 +131,7 @@
   font-weight: 600;
   transition: background 0.3s, color 0.3s, transform 0.3s;
   border: none; /* Remove default border */
+  cursor: pointer;
 }
 
 .btn-ver:hover {
