@@ -49,13 +49,14 @@ const Home = () => {
         <Proyectos />
       </div>
 
+      {/* Habilidades y Tecnologías */}
+      <SkillsSection />
+
       {/* Contactanos */}
       <div id="contactanos">
         <Contactanos />
       </div>
-
-      {/* Habilidades y Tecnologías */}
-      <SkillsSection />
+      
 
       <Footer />
     </div>

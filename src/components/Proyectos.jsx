@@ -87,17 +87,6 @@ const Proyectos = () => {
           </div>
         </div>
       )}
-
-      {/* Sección de logos de empresas (sin título explícito) */}
-      <div className="empresas-section">
-        <div className="empresas-logos">
-          {logosEmpresas.map((logo, i) => (
-            <div className="empresa-logo" key={i}>
-              <img src={logo.imagen} alt={logo.nombre} />
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };

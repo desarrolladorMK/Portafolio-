@@ -88,17 +88,17 @@ const Header = () => {
             >
               Servicios
             </a>
+                  <a
+              href="#proyectos"
+              className={activeSection === "proyectos" ? "active" : ""}
+            >
+              Proyectos
+            </a>
             <a
               href="#contactanos"
               className={activeSection === "contactanos" ? "active" : ""}
             >
               Contáctanos
-            </a>
-                <a
-              href="#proyectos"
-              className={activeSection === "proyectos" ? "active" : ""}
-            >
-              Proyectos
             </a>
           </div>
         </div>
@@ -146,7 +146,15 @@ const Header = () => {
             >
               <span className="dot">•</span> Servicios
             </a>
-            <a
+             <a
+              href="#proyectos"
+              className={`sidebar-link ${
+                activeSection === "proyectos" ? "active" : ""
+              }`}
+            >
+              <span className="dot">•</span> Proyectos
+            </a>
+               <a
               href="#contactanos"
               className={`sidebar-link ${
                 activeSection === "contactanos" ? "active" : ""
