@@ -1,5 +1,12 @@
 .skills-section {
-  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
+      background: linear-gradient(
+      to top,
+      #010e22 0%,
+      #010e22 70%,
+      rgba(1, 14, 34, 0.97) 90%,
+      rgba(1, 14, 34, 1) 100%
+    ),
+    radial-gradient(ellipse at center, #010e22 60%, #000 100%);
   padding: 60px 20px 80px;
   text-align: center;
   color: #fff;

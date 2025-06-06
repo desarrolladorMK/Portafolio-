@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ServiciosCarousel from "../components/ServiciosCarousel";
 import Proyectos from "../components/Proyectos";
-import Contactanos from "../components/Contactanos";
+import Contactanos from "../components/Contacto";
 import { useEffect, useRef } from "react";
 import "./Home.css";
 import ConstellationSection from "../components/ConstellationSection";

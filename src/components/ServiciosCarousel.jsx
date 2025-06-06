@@ -82,7 +82,7 @@ const ServiciosCarousel = () => {
       aria-label="Carrusel de servicios"
     >
       {/* Título principal */}
-      <h1 className="carousel-title" ref={titleRef}>
+      <h1 className="section-title" ref={titleRef}>
         Nuestros Servicios
       </h1>
 
