@@ -1,136 +1,288 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ServiciosCarousel from '../components/ServiciosCarousel';
-import Proyectos from '../components/Proyectos';
-import { useEffect, useRef } from 'react';
-import './Home.css';
+/* Estilo general del header */
+.header {
+  position: relative;
+  width: 100%;
+}
 
-const Home = () => {
-  const constellationRef = useRef(null);
-  const skillsRef = useRef(null);
+/* Estilo del banner */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(1, 14, 34, 0.85) 0%,
+      rgba(1, 14, 34, 0.85) 60%,
+      rgba(1, 14, 34, 0.98) 100%
+    ),
+    url("/banner.jpg") center/cover no-repeat;
+  background-blend-mode: overlay, normal;
+  transition: background-color 0.1s ease-out;
+  overflow: hidden;
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+/* Elimina el background de ::after, ya no es necesario */
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  z-index: -1;
+  opacity: 1;
+}
 
-    if (constellationRef.current) observer.observe(constellationRef.current);
-    if (skillsRef.current) observer.observe(skillsRef.current);
-
-    return () => {
-      if (constellationRef.current) observer.unobserve(constellationRef.current);
-      if (skillsRef.current) observer.unobserve(skillsRef.current);
-    };
-  }, []);
-
-  return (
-    <div>
-      <Header />
-
-      {/* Introducción estilo constelación */}
-      <div className="constellation-section" ref={constellationRef} id="nosotros">
-        <h1 className="intro-title">Bienvenidos a STARDEVS</h1>
-        <p className="intro-subtitle">
-          Cada solución que creamos es una estrella conectada en tu universo digital.
-        </p>
-
-        <div className="constellation-container">
-          <svg className="constellation-lines">
-            <line className="constellation-line" x1="100" y1="100" x2="300" y2="80" />
-            <line className="constellation-line" x1="300" y1="80" x2="500" y2="150" />
-            <line className="constellation-line" x1="500" y1="150" x2="700" y2="100" />
-          </svg>
-
-          <div className="star-node" style={{ top: '90px', left: '100px' }}>
-            <div className="star-card">
-              <div className="star-icon">💻</div>
-              <h2>Diseño Web</h2>
-              <p>Sitios únicos que brillan con identidad y claridad.</p>
-            </div>
-          </div>
-
-          <div className="star-node" style={{ top: '60px', left: '300px' }}>
-            <div className="star-card">
-              <div className="star-icon">🚀</div>
-              <h2>Desarrollo Web</h2>
-              <p>Código limpio y sólido que impulsa tu presencia online.</p>
-            </div>
-          </div>
-
-          <div className="star-node" style={{ top: '140px', left: '500px' }}>
-            <div className="star-card">
-              <div className="star-icon">🔭</div>
-              <h2>SEO</h2>
-              <p>Alcanza nuevas alturas en los resultados de búsqueda.</p>
-            </div>
-          </div>
-
-          <div className="star-node" style={{ top: '90px', left: '700px' }}>
-            <div className="star-card">
-              <div className="star-icon">📱</div>
-              <h2>Redes Sociales</h2>
-              <p>Conecta tu galaxia de seguidores con estilo y coherencia.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Servicios tipo carrusel */}
-      <div id="servicios">
-        <ServiciosCarousel />
-      </div>
-
-        {/* Proyectos */}
-      <div id="proyectos">
-        <Proyectos />
-      </div>
-
-      {/* Habilidades y Tecnologías */}
-      <div className="skills-section" ref={skillsRef} id="contactanos">
-        <h1 className="skills-title">Habilidades y Tecnologías</h1>
-
-        <div className="skills-grid-alt">
-          {/* Stack Tecnológico */}
-          <div className="skills-card">
-            <h2 className="skills-category">Stack Tecnológico</h2>
-            <div className="skills-icons">
-              <span><img src="/icons/html.svg" alt="HTML5" /><p>HTML5</p></span>
-              <span><img src="/icons/css.svg" alt="CSS3" /><p>CSS3</p></span>
-              <span><img src="/icons/js.svg" alt="JavaScript" /><p>JavaScript</p></span>
-              <span><img src="/icons/react.svg" alt="React" /><p>React</p></span>
-              <span><img src="/icons/nodejs.svg" alt="Node.js" /><p>Node.js</p></span>
-              <span><img src="/icons/postgresql.svg" alt="PostgreSQL" /><p>PostgreSQL</p></span>
-              <span><img src="/icons/python.svg" alt="Python" /><p>Python</p></span>
-            </div>
-          </div>
-
-          {/* Herramientas */}
-          <div className="skills-card">
-            <h2 className="skills-category">Herramientas</h2>
-            <div className="skills-icons">
-              <span><img src="/icons/git.svg" alt="Git" /><p>Git</p></span>
-              <span><img src="/icons/github.svg" alt="GitHub" /><p>GitHub</p></span>
-              <span><img src="/icons/terminal.svg" alt="Terminal" /><p>Terminal</p></span>
-              <span><img src="/icons/vscode.svg" alt="VSCode" /><p>VSCode</p></span>
-              <span><img src="/icons/npm.svg" alt="npm" /><p>npm</p></span>
-              <span><img src="/icons/vercel.svg" alt="vercel" /><p>Vercel</p></span>
-              <span><img src="/icons/wordpress.svg" alt="wordPress" /><p>WordPress</p></span>
-              <span><img src="/icons/supabase.svg" alt="Supabase" /><p>Supabase</p></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
-    </div>
+/* Fondo con líneas diagonales */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(100, 255, 218, 0.08) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(100, 255, 218, 0.08) 100%
   );
-};
+  opacity: 0.5;
+}
 
-export default Home;
+/* Contenido del banner */
+.banner-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+/* Ícono de menú hamburguesa */
+.menu-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Texto principal */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.banner-title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #aaf0df;
+}
+
+.banner-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+/* Navegación lateral */
+.sidebar-nav {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 10;
+}
+
+.sidebar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.sidebar-link:hover {
+  transform: scale(1.1);
+  background: rgba(100, 255, 218, 0.2);
+  box-shadow: 0 0 15px #64ffda88;
+}
+
+.sidebar-link:hover::before {
+  left: 100%;
+}
+
+.dot {
+  color: #64ffda;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px #64ffda;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover .dot {
+  transform: scale(1.2);
+  text-shadow: 0 0 20px #64ffda;
+}
+
+/* Active state */
+.sidebar-link.active {
+  background: rgba(100, 255, 218, 0.3);
+  transform: scale(1.1);
+}
+
+/* Fixed Navbar Styles */
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.fixed-nav.visible {
+  transform: translateY(0);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #64ffda;
+}
+
+/* Fade-out en la parte baja para unir con constellation-section */
+.banner-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 14, 34, 0) 0%,
+    #010e22 90%,
+    #010e22 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .banner-title {
+    font-size: 2.5rem;
+  }
+
+  .banner-subtitle {
+    font-size: 1rem;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    top: unset;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
