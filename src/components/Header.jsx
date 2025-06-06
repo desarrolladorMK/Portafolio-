@@ -94,6 +94,12 @@ const Header = () => {
             >
               Contáctanos
             </a>
+                <a
+              href="#proyectos"
+              className={activeSection === "proyectos" ? "active" : ""}
+            >
+              Proyectos
+            </a>
           </div>
         </div>
       </nav>
