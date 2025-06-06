@@ -28,35 +28,47 @@ const servicios = [
   },
 ];
 
-
 const ServiciosCarousel = () => {
   const [activoIndex, setActivoIndex] = useState(0);
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const titleRef = useRef(null);
+  const tabsRef = useRef(null);
+  const panelRefs = useRef([]);
 
-  // Configuración del IntersectionObserver para detectar visibilidad
+  // Configuración del IntersectionObserver para activar animaciones al hacer scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target); // Deja de observar una vez que se activa
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible'); // Permite que la animación se reinicie
+          }
+        });
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
 
-    const currentSection = sectionRef.current;
-    if (currentSection) {
-      observer.observe(currentSection);
-    }
+    // Observar el título
+    if (titleRef.current) observer.observe(titleRef.current);
+
+    // Observar los botones de navegación
+    if (tabsRef.current) observer.observe(tabsRef.current);
+
+    // Observar los paneles del carrusel
+    panelRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
 
     return () => {
-      if (currentSection) {
-        observer.unobserve(currentSection);
-      }
+      if (titleRef.current) observer.unobserve(titleRef.current);
+      if (tabsRef.current) observer.unobserve(tabsRef.current);
+      panelRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
     };
-  }, []);
+  }, [activoIndex]); // Re-observar cuando cambia el panel activo
 
   const handleTabClick = (index) => {
     setActivoIndex(index);
@@ -64,16 +76,22 @@ const ServiciosCarousel = () => {
 
   return (
     <section
-      className={`carousel-servicios ${isVisible ? 'visible' : ''}`}
+      className="carousel-servicios"
       ref={sectionRef}
       id="servicios"
       aria-label="Carrusel de servicios"
     >
       {/* Título principal */}
-      <h1 className="carousel-title">Nuestros Servicios</h1>
+      <h1 className="carousel-title" ref={titleRef}>
+        Nuestros Servicios
+      </h1>
 
       {/* Navegación con rombos */}
-      <nav className="tabs-diamantes" aria-label="Navegación de servicios">
+      <nav
+        className="tabs-diamantes"
+        ref={tabsRef}
+        aria-label="Navegación de servicios"
+      >
         {servicios.map((servicio, index) => (
           <button
             key={servicio.id}
@@ -106,6 +124,7 @@ const ServiciosCarousel = () => {
               key={servicio.id}
               className="carousel-panel"
               aria-hidden={activoIndex !== index}
+              ref={(el) => (panelRefs.current[index] = el)}
             >
               <div className="carousel-content">
                 <div className="carousel-texto">

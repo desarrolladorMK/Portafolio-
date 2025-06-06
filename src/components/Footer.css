@@ -1,0 +1,68 @@
+.footer {
+  background: #000;
+  color: #64ffda;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.footer.visible .footer-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo img {
+  max-width: 150px; /* Ajusta según el tamaño de tu logo */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #64ffda;
+  margin: 0;
+  text-shadow: 0 0 8px #64ffda88;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-logo img {
+    max-width: 120px; /* Tamaño más pequeño para móviles */
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-text {
+    font-size: 0.9rem;
+  }
+}

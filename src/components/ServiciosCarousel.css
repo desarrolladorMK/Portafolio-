@@ -2,21 +2,13 @@
 .carousel-servicios {
   background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
   color: #fff;
-  padding: 5rem 2rem 10rem; /* Aumentado el padding-bottom para más espacio */
+  padding: 5rem 2rem 10rem;
   text-align: center;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  min-height: calc(110vh - 80px); /* Ajusta la altura para que ocupe el viewport menos el header */
+  min-height: calc(110vh - 80px);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra verticalmente el contenido */
-}
-
-.carousel-servicios.visible {
-  opacity: 1;
-  transform: translateY(0);
+  justify-content: center;
 }
 
 .carousel-title {
@@ -25,11 +17,11 @@
   color: #ffffff;
   margin-bottom: 3rem;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.carousel-servicios.visible .carousel-title {
+.carousel-title.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -43,6 +35,14 @@
   gap: 2rem;
   padding: 1.5rem 0;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.tabs-diamantes.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .tab-diamante {
@@ -53,20 +53,7 @@
   text-align: center;
   position: relative;
   padding: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-.carousel-servicios.visible .tab-diamante {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Retrasos escalonados para los botones */
-.carousel-servicios.visible .tab-diamante:nth-child(1) { transition-delay: 0.3s; }
-.carousel-servicios.visible .tab-diamante:nth-child(2) { transition-delay: 0.4s; }
-.carousel-servicios.visible .tab-diamante:nth-child(3) { transition-delay: 0.5s; }
 
 .icono-rombo {
   position: relative;
@@ -165,20 +152,18 @@
   min-width: 100%;
   min-height: 350px;
   padding: 2rem;
-  opacity: 1;
-  transition: opacity 0.3s ease;
   box-sizing: border-box;
   background: rgba(10, 25, 47, 0.85);
   border-radius: 12px;
   border: 2px solid #233554;
   box-shadow: 0 0 16px 0 #64ffda33;
   color: #fff;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
 }
 
-.carousel-panel[aria-hidden="true"] {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
+.carousel-panel.visible {
+  opacity: 1;
 }
 
 .carousel-content {
@@ -188,40 +173,40 @@
   gap: 2rem;
   flex-wrap: wrap;
   color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.carousel-panel.visible .carousel-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .carousel-texto {
   text-align: left;
   flex: 1;
   min-width: 300px;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.carousel-panel.visible .carousel-texto {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .carousel-texto h2 {
   font-size: 1.8rem;
   color: #ffffff;
   margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
-}
-
-.carousel-servicios.visible .carousel-texto h2 {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .carousel-texto p {
   font-size: 1rem;
   color: #fff;
   line-height: 1.6;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
-}
-
-.carousel-servicios.visible .carousel-texto p {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .carousel-img {
@@ -229,11 +214,11 @@
   display: flex;
   justify-content: center;
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
 }
 
-.carousel-servicios.visible .carousel-img {
+.carousel-panel.visible .carousel-img {
   opacity: 1;
   transform: scale(1);
 }
@@ -259,8 +244,8 @@
 /* Responsividad */
 @media (max-width: 768px) {
   .carousel-servicios {
-    padding: 3rem 1rem 8rem; /* Ajustado el padding-bottom para pantallas más pequeñas */
-    min-height: auto; /* Deja que el contenido determine la altura */
+    padding: 3rem 1rem 8rem;
+    min-height: auto;
   }
 
   .carousel-title {
