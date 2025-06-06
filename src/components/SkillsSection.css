@@ -1,0 +1,125 @@
+.skills-section {
+  background: radial-gradient(ellipse at center, #010e22 60%, #000 100%);
+  padding: 60px 20px 80px;
+  text-align: center;
+  color: #fff;
+}
+
+.skills-title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 48px;
+  text-shadow: 0 0 18px #64ffda88;
+  letter-spacing: 2px;
+}
+
+.skills-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+}
+
+.skills-card.improved {
+  background: #000;
+  border: 2px solid #233554;
+  border-radius: 18px;
+  box-shadow: 0 0 24px 0 #64ffda22;
+  padding: 32px 36px;
+  width: 340px;
+  min-width: 260px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.skills-card.improved::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 212, 255, 0.22) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.skills-card.improved.is-hovered::before {
+  opacity: 1;
+}
+
+.skills-card.improved > * {
+  position: relative;
+  z-index: 2;
+}
+
+.skills-category {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #b2becd;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #64ffda44;
+}
+
+.skills-icons.improved {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 18px;
+  justify-items: center;
+}
+
+.skills-icons.improved span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b2becd;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.skills-icons.improved img {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 8px;
+  filter: none;
+  transition: transform 0.2s;
+}
+
+.skills-icons.improved img[alt="GitHub"],
+.skills-icons.improved img[alt="Terminal"],
+.skills-icons.improved img[alt="Vercel"] {
+  filter: brightness(0) invert(1);
+}
+
+.skills-icons.improved span:hover img {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+.skills-icons.improved span:hover {
+  color: #64ffda;
+}
+
+@media (max-width: 900px) {
+  .skills-cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .skills-card.improved {
+    width: 90vw;
+    max-width: 400px;
+    padding: 28px 10vw;
+  }
+  .skills-icons.improved {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
