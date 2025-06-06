@@ -5,15 +5,6 @@
   color: #fff;
 }
 
-.skills-title {
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 48px;
-  text-shadow: 0 0 18px #64ffda88;
-  letter-spacing: 2px;
-}
-
 .skills-cards-wrapper {
   display: flex;
   flex-wrap: wrap;

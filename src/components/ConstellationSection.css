@@ -8,16 +8,6 @@
   text-align: center;
 }
 
-.intro-title {
-  font-size: 2.8rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  color: #fff;
-  opacity: 0;
-  animation: fadeIn 1s ease-out forwards;
-}
-
 .intro-subtitle {
   font-size: 1.2rem;
   color: #b2becd;

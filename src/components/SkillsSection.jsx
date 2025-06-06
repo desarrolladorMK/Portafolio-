@@ -33,7 +33,7 @@ function handleCardMouseMove(e) {
 
 const SkillsSection = () => (
   <section className="skills-section" id="skills">
-    <h1 className="skills-title">Habilidades y Tecnologías</h1>
+    <h1 className="section-title">Habilidades y Tecnologías</h1>
     <div className="skills-cards-wrapper">
       {[
         {

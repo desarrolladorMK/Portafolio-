@@ -28,7 +28,7 @@ const ConstellationSection = ({ constellationRef }) => {
       ref={constellationRef || localRef}
       id="nosotros"
     >
-      <h1 className="intro-title">Bienvenidos a stelarCode</h1>
+      <h1 className="section-title">Bienvenidos a stelarCode</h1>
       <p className="intro-subtitle">
         Cada solución que creamos es una estrella conectada en tu universo
         digital.
