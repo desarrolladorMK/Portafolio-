@@ -30,7 +30,7 @@ const proyectos = [
     imagen: "/public/crediplas.png",
     link: "https://crediplas.com/",
   },
-   {
+  {
     titulo: "E-Commerce ",
     descripcion:
       "Desarrollamos una plataforma de E-Commerce moderna y funcional que conecta tu negocio con el mundo digital. Diseñada con un enfoque limpio y atractivo, ofrece a los clientes una experiencia de compra intuitiva y fluida. Desde la navegación por categorías hasta la pasarela de pago segura, este proyecto combina diseño responsivo y rendimiento optimizado para adaptarse a cualquier dispositivo. Ideal para ampliar tu alcance y aumentar las ventas en línea de manera confiable y escalable.",
@@ -72,19 +72,30 @@ const Proyectos = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const cardRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState([]);
 
   useEffect(() => {
     const options = { threshold: 0.3 };
+    let observer;
+
     const handleIntersect = (entries) => {
       entries.forEach((entry) => {
         if (entry.target.classList.contains("section-title")) {
           entry.target.classList.toggle("active", entry.isIntersecting);
         } else if (entry.target.classList.contains("proyecto-card")) {
-          entry.target.classList.toggle("active", entry.isIntersecting);
+          const idx = Number(entry.target.dataset.index);
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) =>
+              prev.includes(idx) ? prev : [...prev, idx]
+            );
+          } else {
+            setVisibleCards((prev) => prev.filter((i) => i !== idx));
+          }
         }
       });
     };
-    const observer = new window.IntersectionObserver(handleIntersect, options);
+
+    observer = new window.IntersectionObserver(handleIntersect, options);
 
     if (titleRef.current) observer.observe(titleRef.current);
     cardRefs.current.forEach((ref) => {
@@ -108,13 +119,15 @@ const Proyectos = () => {
       <div className="proyectos-grid">
         {proyectos.map((p, i) => (
           <div
-            className="proyecto-card"
+            className={`proyecto-card${
+              visibleCards.includes(i) ? " active" : ""
+            }`}
             key={i}
             ref={(el) => (cardRefs.current[i] = el)}
+            data-index={i}
             onMouseMove={handleCardMouseMove}
             onMouseEnter={(e) => e.currentTarget.classList.add("is-hovered")}
             onMouseLeave={(e) => e.currentTarget.classList.remove("is-hovered")}
-            style={{ animationDelay: `${i * 0.2}s` }}
           >
             <div className="proyecto-img">
               <img src={p.imagen} alt={p.titulo} />

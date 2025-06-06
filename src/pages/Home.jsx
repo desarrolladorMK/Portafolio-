@@ -56,7 +56,6 @@ const Home = () => {
       <div id="contactanos">
         <Contactanos />
       </div>
-      
 
       <Footer />
     </div>
