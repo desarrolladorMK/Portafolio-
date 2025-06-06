@@ -19,6 +19,14 @@ const servicios = [
     imagen: '/public/automatizacion.png',
   },
   {
+    id: 'marketing',
+    nombre: 'Marketing Digital',
+    icono: '🚀',
+    descripcion:
+      'Impulsa la visibilidad de tu negocio con estrategias de marketing digital efectivas y personalizadas. Creamos campañas impactantes que conectan con tu audiencia, optimizamos tu presencia en redes sociales y utilizamos análisis de datos para maximizar tus resultados. Desde el posicionamiento de tu marca hasta la conversión de leads, llevamos tu negocio al siguiente nivel con creatividad e innovación.',
+    imagen: '/public/marketing.png',
+  },
+  {
     id: 'seo',
     nombre: 'Optimización SEO',
     icono: '📈',
@@ -27,6 +35,7 @@ const servicios = [
     imagen: '/public/seo.png',
   },
 ];
+
 
 const ServiciosCarousel = () => {
   const [activoIndex, setActivoIndex] = useState(0);
