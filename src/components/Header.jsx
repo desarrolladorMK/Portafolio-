@@ -111,6 +111,8 @@ const Header = () => {
           backgroundColor: `rgba(0, 0, 0, ${opacity})`,
         }}
       >
+        {/* Fondo de estrellas animadas */}
+        <div className="header-stars-bg"></div>
         <div className="banner-content">
           <div className="logo">
             <Link to="/">
