@@ -14,6 +14,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
+  min-width: 0;
 }
 
 .intro-subtitle {
@@ -60,6 +61,7 @@
   max-width: 900px;
   margin: 0 auto;
   height: 500px;
+  min-width: 0;
 }
 
 .constellation-lines {
@@ -201,6 +203,25 @@
     max-width: 320px;
     margin: 0 auto;
   }
+  .constellation-minimal-intro {
+    font-size: 1rem;
+    padding: 0 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .constellation-section {
+    padding: 30px 2vw 20px;
+  }
+  .constellation-minimal-intro {
+    font-size: 0.93rem;
+    padding: 0 1vw;
+  }
+  .star-card {
+    width: 98vw;
+    max-width: 99vw;
+    padding: 12px 4vw;
+  }
 }
 
 .constellation-minimal-intro {
@@ -221,4 +242,5 @@
   font-family: inherit;
   letter-spacing: normal;
   opacity: 1;
+  min-width: 0;
 }

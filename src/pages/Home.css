@@ -1,0 +1,15 @@
+/* filepath: c:\Users\1\Desktop\Portafolio-\src\pages\Home.css */
+body,
+html,
+#root {
+  min-width: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 24px !important;
+  }
+}

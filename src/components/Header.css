@@ -2,6 +2,7 @@
 .header {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 /* Estilo del banner */
@@ -9,6 +10,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 480px;
   background: linear-gradient(
       to bottom,
       rgba(1, 14, 34, 0.85) 0%,
@@ -19,6 +21,7 @@
   background-blend-mode: overlay, normal;
   transition: background-color 0.1s ease-out;
   overflow: hidden;
+  min-width: 0;
 }
 
 /* Elimina el background de ::after, ya no es necesario */
@@ -60,6 +63,7 @@
   justify-content: space-between;
   padding: 20px;
   color: #fff;
+  min-width: 0;
 }
 
 /* Logo */
@@ -74,27 +78,12 @@
   height: auto;
   filter: brightness(0) invert(1);
   transition: transform 0.3s ease;
+  max-width: 30vw;
+  min-width: 48px;
 }
 
 .logo-img:hover {
   transform: scale(1.1);
-}
-
-/* Ícono de menú hamburguesa */
-.menu-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.menu-icon span {
-  width: 30px;
-  height: 3px;
-  background-color: white;
 }
 
 /* Texto principal */
@@ -105,6 +94,9 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
+  width: 90vw;
+  max-width: 600px;
+  min-width: 0;
 }
 
 .banner-title {
@@ -113,12 +105,14 @@
   text-transform: uppercase;
   margin-bottom: 10px;
   color: #aaf0df;
+  word-break: break-word;
 }
 
 .banner-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
   color: #fff;
+  word-break: break-word;
 }
 
 /* Navegación lateral */
@@ -147,6 +141,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  min-width: 0;
 }
 
 .sidebar-link::before {
@@ -202,8 +197,9 @@
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   transform: translateY(-100%);
-  transition: transform 0.2s linear; /* Usa una transición más rápida y simple */
+  transition: transform 0.2s linear;
   z-index: 1000;
+  min-width: 0;
 }
 
 .fixed-nav.visible {
@@ -217,6 +213,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
 }
 
 .nav-logo {
@@ -224,22 +221,72 @@
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  min-width: 0;
 }
 
-.nav-links {
+/* Elimina el menú hamburguesa y sidebar-nav */
+.menu-icon,
+.sidebar-nav {
+  display: none !important;
+}
+
+/* Distribución horizontal y responsiva del menú */
+.nav-links,
+.nav-links-horizontal {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: static;
+  background: none;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+  padding: 0;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s, background 0.3s;
+  font-size: 1.13rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: #64ffda;
+  background: rgba(100, 255, 218, 0.08);
+}
+
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-links-horizontal {
+    gap: 1.2rem;
+    font-size: 1rem;
+    padding: 0;
+  }
+  .nav-links a {
+    font-size: 1rem;
+    padding: 7px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links,
+  .nav-links-horizontal {
+    gap: 0.5rem;
+    font-size: 0.97rem;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.97rem;
+    padding: 6px 6px;
+  }
 }
 
 /* Fade-out en la parte baja para unir con constellation-section */
@@ -259,15 +306,31 @@
   );
 }
 
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 2.8rem;
+  }
+  .banner-subtitle {
+    font-size: 1.1rem;
+  }
+  .logo-img {
+    width: 70px;
+  }
+  .nav-content {
+    padding: 1rem 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .banner-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
-
   .banner-subtitle {
     font-size: 1rem;
   }
-
+  .logo-img {
+    width: 54px;
+  }
   .sidebar-nav {
     display: flex;
     position: fixed;
@@ -280,9 +343,38 @@
     padding: 10px;
     border-radius: 25px;
     backdrop-filter: blur(10px);
+    gap: 12px;
   }
+  .sidebar-link {
+    font-size: 1rem;
+    padding: 7px 10px;
+  }
+  .nav-content {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
 
-  .menu-icon {
-    display: flex;
+@media (max-width: 480px) {
+  .banner-title {
+    font-size: 1.3rem;
+  }
+  .banner-subtitle {
+    font-size: 0.85rem;
+  }
+  .logo-img {
+    width: 38px;
+  }
+  .banner-content {
+    padding: 10px;
+  }
+  .sidebar-link {
+    font-size: 0.95rem;
+    padding: 6px 7px;
   }
 }

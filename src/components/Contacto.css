@@ -1,7 +1,10 @@
 .contactanos {
-  max-width: 400px;
+  max-width: 100vw;
+  width: 100vw;
   margin: 40px auto;
   padding: 24px 16px;
+  padding-left: 0;
+  padding-right: 0;
   border-radius: 8px;
   background: #0a192f;
   color: #fff;
@@ -10,6 +13,11 @@
   position: relative;
   overflow: visible;
   box-shadow: 0 2px 16px #64ffda33, 0 0 40px 0 #23355444;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contactanos h1 {
@@ -17,12 +25,18 @@
   font-size: 1.6rem;
   color: #64ffda;
   text-align: center;
+  word-break: break-word;
+  width: 100%;
+  max-width: 480px;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
 }
 
 .contact-form label {
@@ -46,6 +60,13 @@
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 16px 16px, 100% 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  min-height: 90px;
+  resize: vertical;
 }
 
 .contact-form button {
@@ -57,6 +78,10 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .contact-form button:hover {
@@ -106,42 +131,43 @@
 
 /* Estrellas flotantes */
 .contactanos .star-float {
-  position: absolute;
+  position: fixed;
   color: #fff;
   opacity: 0.7;
   font-size: 1.2em;
   pointer-events: none;
   z-index: 2;
   animation: float-star 6s linear infinite;
+  /* Ajusta para que no se superpongan con los botones */
 }
 
 .contactanos .star-float.s1 {
-  top: 10px;
-  left: 80%;
+  top: 8vh;
+  left: 85vw;
   font-size: 1.3em;
   animation-delay: 0s;
 }
 .contactanos .star-float.s2 {
-  top: 60px;
-  left: 10%;
+  top: 18vh;
+  left: 8vw;
   font-size: 1em;
   animation-delay: 2s;
 }
 .contactanos .star-float.s3 {
-  top: 90%;
-  left: 20%;
+  top: 85vh;
+  left: 18vw;
   font-size: 1.5em;
   animation-delay: 1.5s;
 }
 .contactanos .star-float.s4 {
-  top: 85%;
-  left: 85%;
+  top: 80vh;
+  left: 80vw;
   font-size: 1.1em;
   animation-delay: 3s;
 }
 .contactanos .star-float.s5 {
-  top: 50%;
-  left: 95%;
+  top: 50vh;
+  left: 95vw;
   font-size: 1.7em;
   animation-delay: 4s;
 }
@@ -158,5 +184,88 @@
   100% {
     transform: translateY(0) scale(1) rotate(0deg);
     opacity: 0.7;
+  }
+}
+
+@media (max-width: 900px) {
+  .contactanos {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contact-form {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactanos {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 8px 0vw;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 0.97rem;
+    border-radius: 0;
+  }
+  .contact-form {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.97rem;
+    padding: 7px 8px;
+  }
+  .contactanos h1 {
+    font-size: 1.2rem;
+    max-width: 99vw;
+  }
+  .star-float {
+    font-size: 0.8em !important;
+  }
+  .contactanos .star-float.s1 {
+    top: 6vh;
+    left: 80vw;
+  }
+  .contactanos .star-float.s2 {
+    top: 14vh;
+    left: 12vw;
+  }
+  .contactanos .star-float.s3 {
+    top: 90vh;
+    left: 10vw;
+  }
+  .contactanos .star-float.s4 {
+    top: 92vh;
+    left: 85vw;
+  }
+  .contactanos .star-float.s5 {
+    top: 60vh;
+    left: 95vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .contactanos {
+    padding-left: 0;
+    padding-right: 0;
+    padding: 4px 0vw;
+  }
+  .contact-form {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.93rem;
+    padding: 6px 6px;
+  }
+  .contactanos h1 {
+    font-size: 1rem;
+    max-width: 98vw;
   }
 }
