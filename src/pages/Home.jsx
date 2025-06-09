@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import ServiciosCarousel from "../components/ServiciosCarousel";
 import Proyectos from "../components/Proyectos";
 import Contactanos from "../components/Contacto";
+import Clientes from "../components/Clientes";
 import { useEffect, useRef } from "react";
 import "./Home.css";
 import ConstellationSection from "../components/ConstellationSection";
@@ -48,9 +49,14 @@ const Home = () => {
       <div id="proyectos">
         <Proyectos />
       </div>
+      {/* Clientes */}
+      <div id="clientes">
+        <Clientes />
+      </div>
+
 
       {/* Habilidades y Tecnologías */}
-      <SkillsSection />
+      <SkillsSection /><br />
 
       {/* Contactanos */}
       <div id="contactanos">
@@ -58,6 +64,22 @@ const Home = () => {
       </div>
 
       <Footer />
+
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href="https://wa.me/521234567890"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Contáctanos por WhatsApp"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          alt="WhatsApp"
+          style={{ width: 48, height: 48, display: "block" }}
+        />
+        <span className="whatsapp-label">¡Escríbenos!</span>
+      </a>
     </div>
   );
 };

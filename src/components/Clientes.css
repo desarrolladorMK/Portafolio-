@@ -1,0 +1,96 @@
+.clientes-section {
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  padding: 32px 16px;
+  background: rgba(10, 25, 47, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #64ffda22;
+  text-align: center;
+}
+/* Título principal */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  opacity: 1; /* Siempre visible */
+  transform: none; /* Sin desplazamiento inicial */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+
+.clientes-section p {
+  color: #b2becd;
+  margin-bottom: 32px;
+  font-size: 1.08rem;
+}
+
+.clientes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cliente-card {
+  background: #0a192f;
+  border: 2px solid #233554;
+  border-radius: 14px;
+  padding: 22px 18px 14px 18px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 2px 12px #64ffda22;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.cliente-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 6px 24px #64ffda44;
+  border-color: #64ffda;
+}
+
+.cliente-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.cliente-nombre {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .clientes-grid {
+    gap: 18px;
+  }
+  .cliente-card {
+    width: 120px;
+    padding: 14px 8px 8px 8px;
+  }
+  .cliente-logo {
+    width: 56px;
+    height: 56px;
+    padding: 4px;
+  }
+  .clientes-section {
+    padding: 18px 2vw;
+  }
+}

@@ -9,13 +9,68 @@ export default function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateEmail = (email) => {
+    // Validación simple de correo electrónico
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    // Solo números, de 7 a 15 dígitos
+    return /^[0-9]{7,15}$/.test(phone);
+  };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // Restricciones de longitud
+    if (name === "name" && value.length > 70) return;
+    if (name === "message" && value.length > 500) return;
+    if (name === "phone" && !/^[0-9]*$/.test(value)) return; // Solo números
+
+    setFormData({ ...formData, [name]: value });
+
+    // Validaciones en tiempo real
+    if (name === "email") {
+      setErrors((prev) => ({
+        ...prev,
+        email: validateEmail(value) ? "" : "Correo electrónico inválido",
+      }));
+    }
+    if (name === "phone") {
+      setErrors((prev) => ({
+        ...prev,
+        phone: validatePhone(value) || value === "" ? "" : "Número inválido",
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Validaciones finales antes de enviar
+    let valid = true;
+    let newErrors = {};
+
+    if (!validateEmail(formData.email)) {
+      newErrors.email = "Correo electrónico inválido";
+      valid = false;
+    }
+    if (!validatePhone(formData.phone)) {
+      newErrors.phone = "Número telefónico inválido";
+      valid = false;
+    }
+    if (formData.name.length > 70) {
+      newErrors.name = "Máximo 70 caracteres";
+      valid = false;
+    }
+    if (formData.message.length > 500) {
+      newErrors.message = "Máximo 500 caracteres";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    if (!valid) return;
+
     setStatus("Enviando...");
     try {
       const response = await fetch(
@@ -54,8 +109,10 @@ export default function ContactForm() {
           placeholder="Nombre"
           value={formData.name}
           onChange={handleChange}
+          maxLength={70}
           required
         />
+        {errors.name && <span className="error">{errors.name}</span>}
         <input
           type="email"
           name="email"
@@ -64,21 +121,26 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
+        {errors.email && <span className="error">{errors.email}</span>}
         <input
           type="tel"
           name="phone"
           placeholder="Número Telefónico"
           value={formData.phone}
           onChange={handleChange}
+          maxLength={15}
           required
         />
+        {errors.phone && <span className="error">{errors.phone}</span>}
         <textarea
           name="message"
           placeholder="Describe tu necesidad"
           value={formData.message}
           onChange={handleChange}
+          maxLength={500}
           required
         ></textarea>
+        {errors.message && <span className="error">{errors.message}</span>}
         <button type="submit">Enviar</button>
       </form>
       {status && <p>{status}</p>}
