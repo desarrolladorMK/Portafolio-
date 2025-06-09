@@ -9,62 +9,17 @@ const Header = () => {
   const [opacity, setOpacity] = useState(0.3);
 
   useEffect(() => {
-    let scrollTimeout;
-    let isScrolling = false;
-
-    const handleSmoothScroll = (e) => {
-      if (e.target.classList.contains("sidebar-link")) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute("href").slice(1);
-        const targetElement = document.getElementById(targetId);
-        setActiveSection(targetId);
-        isScrolling = true;
-        targetElement.scrollIntoView({ behavior: "smooth" });
-
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          isScrolling = false;
-        }, 1000);
-      }
-    };
-
+    // Elimina la lógica de scroll para el banner y solo muestra el fixed-nav cuando el scrollY > 100
     const handleScroll = () => {
-      if (isScrolling) return;
-
-      const bannerHeight = bannerRef.current?.offsetHeight || 0;
-      setShowFixedNav(window.scrollY > bannerHeight * 0.8);
-
-      const scrollY = window.scrollY;
-      const maxScroll = bannerHeight;
-      const newOpacity = Math.min(1, 0.3 + (scrollY / maxScroll) * 0.7);
-      setOpacity(newOpacity);
-
-      const sections = ["nosotros", "servicios", "contactanos"];
-      const viewportHeight = window.innerHeight;
-      const buffer = viewportHeight * 0.3;
-
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementCenter = rect.top + rect.height / 2;
-          return (
-            elementCenter > buffer && elementCenter < viewportHeight - buffer
-          );
-        }
-        return false;
-      });
-
-      setActiveSection(current || "");
+      setShowFixedNav(window.scrollY > 100);
+      // Si quieres mantener el efecto de opacidad, puedes dejarlo, pero si quieres máxima fluidez, elimínalo:
+      // setOpacity(1);
     };
 
-    document.addEventListener("click", handleSmoothScroll);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("click", handleSmoothScroll);
       window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
     };
   }, []);
 
@@ -103,14 +58,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      <div
-        ref={bannerRef}
-        className="banner"
-        style={{
-          backgroundColor: `rgba(0, 0, 0, ${opacity})`,
-        }}
-      >
+      <div ref={bannerRef} className="banner">
         <div className="banner-content">
           <div className="logo">
             <Link to="/">

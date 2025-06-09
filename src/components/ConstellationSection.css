@@ -23,7 +23,7 @@
   opacity: 0;
   animation: fadeIn 1s ease-out 0.2s forwards;
   text-align: center;
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 1.5;
@@ -35,7 +35,12 @@
   border: 1px solid #233554; /* Borde sutil para destacar */
   border-radius: 8px;
   overflow-wrap: break-word;
-  background: rgba(10, 25, 47, 0.95); /* Fondo para coherencia con el formulario */
+  background: rgba(
+    10,
+    25,
+    47,
+    0.95
+  ); /* Fondo para coherencia con el formulario */
   transition: box-shadow 0.3s ease;
 }
 .intro-subtitle:hover {
@@ -75,6 +80,13 @@
   transition: stroke 0.3s, opacity 0.3s;
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
+}
+
+.constellation-section .constellation-line {
+  animation: none;
+}
+
+.constellation-section.constellation-animate .constellation-line {
   animation: drawLine 2.8s ease-out forwards;
 }
 
@@ -189,4 +201,24 @@
     max-width: 320px;
     margin: 0 auto;
   }
+}
+
+.constellation-minimal-intro {
+  font-size: 1.2rem;
+  color: #b2becd;
+  margin-bottom: 44px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: none;
+  font-family: inherit;
+  letter-spacing: normal;
+  opacity: 1;
 }
