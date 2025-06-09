@@ -244,6 +244,10 @@
   transform: scale(0.8);
   opacity: 0;
   animation: scaleIn 0.5s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
 }
 
 .modal-content h2 {
@@ -258,6 +262,9 @@
   color: #b2becd;
   line-height: 1.6;
   margin-bottom: 24px;
+  /* No scroll en desktop */
+  max-height: none;
+  overflow: visible;
 }
 
 .modal-close {
@@ -327,11 +334,30 @@
   .modal-content {
     padding: 24px;
     max-width: 90%;
+    max-height: 80vh;
+    min-height: 320px;
+    overflow: hidden;
   }
   .modal-content h2 {
     font-size: 1.6rem;
   }
   .modal-content p {
-    font-size: 1rem;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 24px;
+    padding-right: 4px;
+    /* Scrollbar solo si es necesario */
+  }
+}
+
+/* Opcional: mejora la apariencia del scrollbar en móviles */
+@media (max-width: 768px) {
+  .modal-content p::-webkit-scrollbar {
+    width: 4px;
+    background: #233554;
+  }
+  .modal-content p::-webkit-scrollbar-thumb {
+    background: #64ffda;
+    border-radius: 2px;
   }
 }

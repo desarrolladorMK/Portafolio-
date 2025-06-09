@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ConstellationSection.css";
 
 const ConstellationSection = ({ constellationRef }) => {
-  const localRef = React.useRef(null);
+  const localRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const ref = constellationRef?.current || localRef.current;
+    if (!ref) return;
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setAnimate(true);
+          hasAnimated.current = true;
+          observer.disconnect();
+        }
+      });
+    };
+
+    const observer = new window.IntersectionObserver(handleIntersect, {
+      threshold: 0.3,
+    });
+
+    observer.observe(ref);
+
+    return () => observer.disconnect();
+  }, [constellationRef]);
 
   return (
     <div
-      className="constellation-section constellation-animate"
+      className={`constellation-section${
+        animate ? " constellation-animate" : ""
+      }`}
       ref={constellationRef || localRef}
       id="nosotros"
     >

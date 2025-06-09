@@ -74,6 +74,18 @@ const Proyectos = () => {
   const cardRefs = useRef([]);
   const [visibleCards, setVisibleCards] = useState([]);
 
+  // Bloquea el scroll del body cuando el modal está abierto
+  useEffect(() => {
+    if (modalProyecto) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [modalProyecto]);
+
   useEffect(() => {
     const options = { threshold: 0.3 };
     let observer;
