@@ -68,7 +68,7 @@ function handleCardMouseMove(e) {
 }
 
 const Proyectos = () => {
-  const [modalProyecto, setModalProyecto] = useState(null);
+  const [modal, setModal] = useState({ open: false, proyecto: null });
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const cardRefs = useRef([]);
@@ -76,7 +76,7 @@ const Proyectos = () => {
 
   // Bloquea el scroll del body cuando el modal está abierto
   useEffect(() => {
-    if (modalProyecto) {
+    if (modal.open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -84,7 +84,7 @@ const Proyectos = () => {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [modalProyecto]);
+  }, [modal]);
 
   useEffect(() => {
     const options = { threshold: 0.3 };
@@ -122,6 +122,9 @@ const Proyectos = () => {
     };
   }, []);
 
+  const openModal = (proyecto) => setModal({ open: true, proyecto });
+  const closeModal = () => setModal({ open: false, proyecto: null });
+
   return (
     <div className="proyectos-section" ref={sectionRef}>
       <div className="stars-background"></div>
@@ -146,39 +149,46 @@ const Proyectos = () => {
             </div>
             <div className="proyecto-info">
               <h2>{p.titulo}</h2>
-              <button className="btn-ver" onClick={() => setModalProyecto(p)}>
+              <button className="btn-ver" onClick={() => openModal(p)}>
                 Ver proyecto
               </button>
             </div>
           </div>
         ))}
       </div>
-
-      {modalProyecto && (
-        <div className="modal-overlay" onClick={() => setModalProyecto(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="modal-close"
-              onClick={() => setModalProyecto(null)}
-            >
-              ✕
+      {modal.open && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxHeight: "90vh", overflowY: "auto" }}
+          >
+            <button className="modal-close" onClick={closeModal}>
+              &times;
             </button>
-            <h2>{modalProyecto.titulo}</h2>
+            <h2>{modal.proyecto.titulo}</h2>
             <div className="modal-img">
-              <img src={modalProyecto.imagen} alt={modalProyecto.titulo} />
+              <img src={modal.proyecto.imagen} alt={modal.proyecto.titulo} />
             </div>
-            <p>{modalProyecto.descripcion}</p>
-            {modalProyecto.link ? (
+            <p>{modal.proyecto.descripcion}</p>
+            {modal.proyecto.link ? (
               <a
-                href={modalProyecto.link}
-                target="_blank"
-                rel="noreferrer"
+                href={modal.proyecto.link}
                 className="btn-ver"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "block", marginTop: 12 }}
               >
                 Ir al sitio
               </a>
             ) : (
-              <span className="btn-ver disabled">Proyecto privado</span>
+              <button
+                className="btn-ver disabled"
+                disabled
+                style={{ display: "block", marginTop: 12 }}
+              >
+                Proyecto Privado
+              </button>
             )}
           </div>
         </div>
