@@ -13,6 +13,8 @@ const WhatsAppButton = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  
+
   return (
     <div className="whatsapp-container">
       {showMessage && (
