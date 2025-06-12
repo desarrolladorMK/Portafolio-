@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-
+import "./WhatsAppButton.css";
 
 const WhatsAppButton = () => {
   const [showMessage, setShowMessage] = useState(true);
@@ -13,7 +13,7 @@ const WhatsAppButton = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
+  
 
   return (
     <div className="whatsapp-container">
