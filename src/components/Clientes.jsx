@@ -1,26 +1,26 @@
 import "./Clientes.css";
 
-// Ejemplo de datos, reemplaza con tus logos reales y nombres
+// Mejora: agrega nombres y estilos más acordes a tu branding
 const clientes = [
   {
     logo: "/icono pagina.webp",
-    url: "https://merkahorro.com"
+    url: "https://merkahorro.com",
+    nombre: "Merkahorro",
   },
   {
-    
     logo: "/credi.jpg",
-    url: "https://crediplas.com"
+    url: "https://crediplas.com",
+    nombre: "Crediplas",
   },
- 
-
 ];
 
 const Clientes = () => {
   return (
-    <div className="clientes-section">
-      <h1 className="section-title"  >Nuestros Clientes</h1>
+    <section className="clientes-section" id="clientes">
+      <h1 className="section-title">Nuestros Clientes</h1>
       <p>
-        Estos son algunos de los proyectos y empresas que han confiado en nosotros para desarrollar sus soluciones tecnológicas.
+        Estos son algunos de los proyectos y empresas que han confiado en
+        nosotros para desarrollar sus soluciones tecnológicas.
       </p>
       <div className="clientes-grid">
         {clientes.map((cliente, idx) => (
@@ -32,12 +32,18 @@ const Clientes = () => {
             rel="noopener noreferrer"
             title={cliente.nombre}
           >
-            <img src={cliente.logo} alt={cliente.nombre} className="cliente-logo" />
+            <div className="cliente-logo-wrapper no-bg">
+              <img
+                src={cliente.logo}
+                alt={cliente.nombre}
+                className="cliente-logo"
+              />
+            </div>
             <span className="cliente-nombre">{cliente.nombre}</span>
           </a>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

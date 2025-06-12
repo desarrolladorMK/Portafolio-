@@ -1,96 +1,140 @@
 .clientes-section {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 60px auto 40px auto;
-  padding: 32px 16px;
-  background: rgba(10, 25, 47, 0.97);
-  border-radius: 18px;
-  box-shadow: 0 4px 32px #64ffda22;
+  padding: 0 0 40px 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
   text-align: center;
+  border: none;
+  min-width: 0;
 }
-/* Título principal */
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 3rem;
-  opacity: 1; /* Siempre visible */
-  transform: none; /* Sin desplazamiento inicial */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.section-title.visible {
-  opacity: 1;
-  transform: none;
-}
-
-
 
 .clientes-section p {
   color: #b2becd;
   margin-bottom: 32px;
   font-size: 1.08rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .clientes-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 36px;
   justify-content: center;
   align-items: center;
+  min-width: 0;
 }
 
 .cliente-card {
-  background: #0a192f;
-  border: 2px solid #233554;
-  border-radius: 14px;
-  padding: 22px 18px 14px 18px;
-  width: 160px;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  width: 170px;
+  min-width: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 2px 12px #64ffda22;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: none;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+  position: relative;
+  overflow: visible;
 }
 
 .cliente-card:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 6px 24px #64ffda44;
-  border-color: #64ffda;
+  transform: translateY(-8px) scale(1.045);
+}
+
+.cliente-logo-wrapper {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px #64ffda22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  transition: box-shadow 0.3s;
+}
+
+.cliente-logo-wrapper.no-bg {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  width: auto;
+  height: auto;
 }
 
 .cliente-logo {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
-  margin-bottom: 12px;
+  display: block;
+  border-radius: 12px;
   background: #fff;
-  border-radius: 8px;
-  padding: 8px;
+  box-shadow: 0 2px 8px #64ffda22;
+  border: 2px solid #233554;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.cliente-card:hover .cliente-logo {
+  box-shadow: 0 4px 16px #64ffda55;
+  border-color: #64ffda;
 }
 
 .cliente-nombre {
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  margin-top: 2px;
+  margin-top: 6px;
+  text-shadow: 0 0 8px #64ffda33;
+}
+
+@media (max-width: 900px) {
+  .clientes-section {
+    padding: 0 2vw 24px 2vw;
+  }
+  .clientes-grid {
+    gap: 22px;
+  }
+  .cliente-card {
+    width: 130px;
+    min-width: 90px;
+  }
+  .cliente-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .cliente-nombre {
+    font-size: 0.97rem;
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 600px) {
+  .clientes-section {
+    padding: 0 1vw 14px 1vw;
+  }
   .clientes-grid {
-    gap: 18px;
+    gap: 12px;
   }
   .cliente-card {
-    width: 120px;
-    padding: 14px 8px 8px 8px;
+    width: 110px;
+    min-width: 70px;
   }
   .cliente-logo {
-    width: 56px;
-    height: 56px;
-    padding: 4px;
+    width: 26px;
+    height: 26px;
   }
-  .clientes-section {
-    padding: 18px 2vw;
+  .cliente-nombre {
+    font-size: 0.85rem;
+    margin-top: 2px;
   }
 }
