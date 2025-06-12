@@ -17,6 +17,22 @@ const Footer = () => (
           &copy; {new Date().getFullYear()} stelarCode. Todos los derechos
           reservados.
         </span>
+        <div className="footer-contact" style={{ marginTop: 0, textAlign: 'right' }}>
+          <a
+            href="mailto:stelarcode1@gmail.com"
+            className="footer-email"
+            style={{
+              color: "#64ffda",
+              textDecoration: "none",
+              fontWeight: 500,
+              fontSize: '1.05rem',
+              letterSpacing: '0.5px',
+              marginLeft: 16
+            }}
+          >
+            stelarcode1@gmail.com
+          </a>
+        </div>
       </div>
     </div>
   </footer>
