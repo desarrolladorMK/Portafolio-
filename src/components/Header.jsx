@@ -34,28 +34,24 @@ const Header = () => {
       const bannerHeight = bannerRef.current?.offsetHeight || 0;
       setShowFixedNav(window.scrollY > bannerHeight * 0.8);
 
-      const scrollY = window.scrollY;
-      const maxScroll = bannerHeight;
-      const newOpacity = Math.min(1, 0.3 + (scrollY / maxScroll) * 0.7);
-      setOpacity(newOpacity);
-
-      const sections = ["nosotros", "servicios", "contactanos"];
-      const viewportHeight = window.innerHeight;
-      const buffer = viewportHeight * 0.3;
-
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementCenter = rect.top + rect.height / 2;
-          return (
-            elementCenter > buffer && elementCenter < viewportHeight - buffer
-          );
+      const sections = ["nosotros", "servicios", "proyectos", "contactanos"];
+      let found = "";
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // Considera activa si cualquier parte de la sección está visible
+          if (
+            rect.top < window.innerHeight * 0.5 &&
+            rect.bottom > window.innerHeight * 0.2
+          ) {
+            found = section;
+            break;
+          }
         }
-        return false;
-      });
-
-      setActiveSection(current || "");
+      }
+      setActiveSection(found || "");
     };
 
     document.addEventListener("click", handleSmoothScroll);
