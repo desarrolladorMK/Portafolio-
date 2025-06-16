@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import "./WhatsappButton.css"; // Asegúrate de crear este archivo CSS
 
 
 const WhatsAppButton = () => {
