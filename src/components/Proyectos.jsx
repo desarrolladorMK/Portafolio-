@@ -6,7 +6,7 @@ const proyectos = [
     titulo: "Página Web Informativa",
     descripcion:
       "Desarrollamos una plataforma informativa moderna y responsiva para la empresa Merkahorro, diseñada para brindar a los clientes una experiencia clara, rápida y visualmente atractiva. Esta página web no solo presenta la historia y los servicios de la empresa, sino que también destaca promociones activas, incluye un chatbot que responde preguntas puntuales de los usuarios y permite postularse fácilmente a oportunidades laborales. Todo el contenido fue construido con React y optimizado para navegación móvil.",
-    imagen: "/public/pagina.png",
+    imagen: "/pagina.png",
     link: "https://www.merkahorro.com/",
   },
   {
