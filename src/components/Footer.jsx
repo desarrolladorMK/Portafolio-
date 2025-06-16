@@ -96,7 +96,7 @@ const Footer = () => {
                 })
               }
             >
-              stelarcode1@gmail.comm
+              stelarcode1@gmail.com
             </a>
           </div>
         </div>
