@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import "./WhatsAppButton.css";
+
 
 const WhatsAppButton = () => {
   const [showMessage, setShowMessage] = useState(true);
