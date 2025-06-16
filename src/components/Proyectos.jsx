@@ -13,28 +13,28 @@ const proyectos = [
     titulo: "Aula Virtual",
     descripcion:
       "Plataforma educativa desarrollada con Moodle, con una interfaz clara y sencilla que permite capacitar a los colaboradores de forma eficiente. Incluye varios cursos internos organizados por módulos, con sus respectivas evaluaciones para medir el progreso de los participantes. Al superar todos los módulos, se genera automáticamente un certificado que valida la formación. Este sistema facilita el aprendizaje continuo y el desarrollo profesional de los colaboradores.",
-    imagen: "/public/aula.png",
+    imagen: "/aula.png",
     link: "https://merkahorro.com/Aula/",
   },
   {
     titulo: "Contratación Virtual",
     descripcion:
       "Desarrollamos un sistema integral para digitalizar y automatizar el proceso de contratación de personal. Incluye paneles de control y seguimiento por fases (postulación, entrevistas, exámenes médicos, documentación, contratación), un archivador digital para centralizar todos los documentos de los postulantes y contratados, y una interfaz clara y sencilla que facilita la gestión tanto para el área de recursos humanos como para los candidatos. Este sistema permite optimizar tiempos y mejorar la experiencia de contratación.",
-    imagen: "/public/contratacion.png",
+    imagen: "/contratacion.png",
     link: "",
   },
   {
     titulo: "Sitio Web Corporativo",
     descripcion:
       "Desarrollamos un sitio web corporativo para Crediplas, diseñado con un enfoque limpio, moderno y profesional para presentar sus servicios de cirugía plástica y estética. El sitio permite a los usuarios explorar los perfiles de cirujanos plásticos y sus especialidades (como cirugía bariátrica, odontología, implantes capilares, medicina estética, etc.), ver ejemplos de resultados, conocer las clínicas disponibles y acceder a un simulador de crédito para facilitar la financiación de procedimientos. La plataforma también permite a los clientes iniciar solicitudes de tarjetas de crédito y explorar suministros hospitalarios. Con un diseño responsivo y fluido, el sitio ofrece una experiencia de usuario clara y efectiva en todos los dispositivos.",
-    imagen: "/public/crediplas.png",
+    imagen: "/crediplas.png",
     link: "https://crediplas.com/",
   },
   {
     titulo: "E-Commerce ",
     descripcion:
       "Desarrollamos una plataforma de E-Commerce moderna y funcional que conecta tu negocio con el mundo digital. Diseñada con un enfoque limpio y atractivo, ofrece a los clientes una experiencia de compra intuitiva y fluida. Desde la navegación por categorías hasta la pasarela de pago segura, este proyecto combina diseño responsivo y rendimiento optimizado para adaptarse a cualquier dispositivo. Ideal para ampliar tu alcance y aumentar las ventas en línea de manera confiable y escalable.",
-    imagen: "/public/tienda.png",
+    imagen: "/tienda.png",
     link: "",
   },
 ];
@@ -42,19 +42,19 @@ const proyectos = [
 const logosEmpresas = [
   {
     nombre: "Empresa 1",
-    imagen: "/public/mkicono.webp",
+    imagen: "/mkicono.webp",
   },
   {
     nombre: "Empresa 2",
-    imagen: "/public/logo2.png",
+    imagen: "/logo2.png",
   },
   {
     nombre: "Empresa 3",
-    imagen: "/public/logo3.png",
+    imagen: "/logo3.png",
   },
   {
     nombre: "Empresa 4",
-    imagen: "/public/logo4.png",
+    imagen: "/logo4.png",
   },
 ];
 
