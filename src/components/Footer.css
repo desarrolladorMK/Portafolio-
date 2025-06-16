@@ -56,7 +56,6 @@
 .footer-copy {
   font-size: 0.98rem;
   color: #b2becd;
-  opacity: 0.8;
   margin-left: 1rem;
 }
 
@@ -77,5 +76,11 @@
   }
   .footer-brand {
     font-size: 1rem;
+  }
+  .footer-contact {
+    text-align: center !important;
+  }
+  .footer-email {
+    margin-left: 0 !important;
   }
 }

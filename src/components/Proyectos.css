@@ -247,7 +247,7 @@
   display: flex;
   flex-direction: column;
   max-height: 90vh;
-  overflow: hidden;
+  overflow: hidden; /* No scroll en el modal */
 }
 
 .modal-content h2 {
@@ -262,7 +262,6 @@
   color: #b2becd;
   line-height: 1.6;
   margin-bottom: 24px;
-  /* No scroll en desktop */
   max-height: none;
   overflow: visible;
 }
@@ -336,17 +335,18 @@
     max-width: 90%;
     max-height: 80vh;
     min-height: 320px;
-    overflow: hidden;
+    overflow: hidden; /* No scroll en el modal */
+    display: flex;
+    flex-direction: column;
   }
   .modal-content h2 {
     font-size: 1.6rem;
   }
   .modal-content p {
     max-height: 120px;
-    overflow-y: auto;
+    overflow-y: auto; /* Solo el texto tiene scroll */
     margin-bottom: 24px;
     padding-right: 4px;
-    /* Scrollbar solo si es necesario */
   }
 }
 
