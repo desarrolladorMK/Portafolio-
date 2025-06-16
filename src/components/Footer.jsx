@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="footer-left">
           <img
             ref={logoRef}
-            src="/public/logoDV.png"
+            src="/logoDV.png"
             alt="stelarCode Logo"
             className="footer-logo-img"
             loading="lazy"
@@ -96,7 +96,7 @@ const Footer = () => {
                 })
               }
             >
-              stelarcode1@gmail.com
+              stelarcode1@gmail.comm
             </a>
           </div>
         </div>
