@@ -71,6 +71,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
+  cursor: pointer; /* Agrega un cursor de puntero para indicar que es clicable */
 }
 
 .logo-img {
@@ -85,6 +86,34 @@
 .logo-img:hover {
   transform: scale(1.1);
 }
+
+/* --- Animación de Estrella Fugaz --- */
+.shooting-star {
+  position: absolute;
+  top: 0; /* Ajusta la posición inicial según tu diseño */
+  left: 0; /* Ajusta la posición inicial según tu diseño */
+  width: 5px; /* Tamaño de la estrella */
+  height: 5px;
+  background-color: #64ffda; /* Color de la estrella */
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(100, 255, 218, 0.7); /* Brillo */
+  animation: shoot 1.5s forwards ease-out; /* Duración y función de tiempo */
+  z-index: 10;
+  transform: translate(-50%, -50%); /* Centra la estrella */
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(200px, 200px) scale(0.5); /* Dirección y tamaño final */
+    opacity: 0;
+  }
+}
+/* --- Fin de Animación de Estrella Fugaz --- */
+
 
 /* Texto principal */
 .banner-text {

@@ -7,6 +7,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
   const [showFixedNav, setShowFixedNav] = useState(false);
   const [opacity, setOpacity] = useState(0.3);
+  const [showShootingStar, setShowShootingStar] = useState(false); // Nuevo estado
 
   useEffect(() => {
     let scrollTimeout;
@@ -41,7 +42,6 @@ const Header = () => {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Considera activa si cualquier parte de la sección está visible
           if (
             rect.top < window.innerHeight * 0.5 &&
             rect.bottom > window.innerHeight * 0.2
@@ -63,6 +63,15 @@ const Header = () => {
       clearTimeout(scrollTimeout);
     };
   }, []);
+
+  // Función para manejar el clic en el logo y mostrar la estrella fugaz
+  const handleLogoClick = () => {
+    setShowShootingStar(true);
+    // Ocultar la estrella después de un tiempo para que la animación se complete
+    setTimeout(() => {
+      setShowShootingStar(false);
+    }, 1500); // Duración de la animación en CSS
+  };
 
   return (
     <header className="header">
@@ -110,7 +119,7 @@ const Header = () => {
         {/* Fondo de estrellas animadas */}
         <div className="header-stars-bg"></div>
         <div className="banner-content">
-          <div className="logo">
+          <div className="logo" onClick={handleLogoClick}> {/* Agregamos onClick aquí */}
             <Link to="/">
               <img
                 src="/logoDV.png"
@@ -118,6 +127,7 @@ const Header = () => {
                 className="logo-img"
               />
             </Link>
+            {showShootingStar && <div className="shooting-star"></div>} {/* La estrella fugaz */}
           </div>
 
           <div className="banner-text">
