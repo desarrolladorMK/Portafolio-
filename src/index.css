@@ -84,3 +84,7 @@ body::-webkit-scrollbar-track {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+body, html {
+  overflow-x: hidden;
+}
