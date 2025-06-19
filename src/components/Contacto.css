@@ -1,4 +1,5 @@
 .contactanos {
+  scroll-margin-top: 100px; /* Espacio para header fijo */
   max-width: 400px;
   margin: 40px auto;
   padding: 24px 16px;

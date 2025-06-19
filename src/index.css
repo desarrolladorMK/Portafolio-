@@ -88,3 +88,9 @@ body::-webkit-scrollbar-track {
 body, html {
   overflow-x: hidden;
 }
+
+html {
+  scroll-behavior: smooth; /* Esto añade un desplazamiento suave, ¡un extra! */
+  scroll-padding-top: 70px; /* Reemplaza 70px con la altura de tu header */
+}
+
