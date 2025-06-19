@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './ServiciosCarousel.css';
 
+// El array de servicios no cambia, así que lo dejamos igual.
 const servicios = [
   {
     id: 'software',
@@ -36,41 +37,41 @@ const servicios = [
   },
 ];
 
+
 const ServiciosCarousel = () => {
   const [activoIndex, setActivoIndex] = useState(0);
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const tabsRef = useRef(null);
-  const panelRefs = useRef([]);
+  const sectionRef = useRef(null); // Usaremos este para el observer
 
+  // ✅ useEffect simplificado: Solo se ejecuta una vez al montar el componente.
   useEffect(() => {
+    // Si el elemento no existe, no hacemos nada.
+    if (!sectionRef.current) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
+            // Añade 'visible' a todos los hijos que necesitan animarse a la vez
+            entry.target.querySelectorAll('.animate-on-scroll').forEach(el => {
+              el.classList.add('visible');
+            });
+            // Una vez visible, ya no necesitamos observar.
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 } // Un umbral más bajo para que se active antes
     );
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    if (tabsRef.current) observer.observe(tabsRef.current);
-    panelRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    observer.observe(sectionRef.current);
 
+    // Función de limpieza
     return () => {
-      if (titleRef.current) observer.unobserve(titleRef.current);
-      if (tabsRef.current) observer.unobserve(tabsRef.current);
-      panelRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
-  }, [activoIndex]);
+  }, []); // El array vacío [] asegura que esto solo se ejecute al montar y desmontar.
 
   const handleTabClick = (index) => {
     setActivoIndex(index);
@@ -83,12 +84,12 @@ const ServiciosCarousel = () => {
       id="servicios"
       aria-label="Carrusel de servicios"
     >
-      <h1 className="section-title" ref={titleRef}>
+      <h1 className="section-title animate-on-scroll">
         Nuestros Servicios
       </h1>
+
       <nav
-        className="tabs-diamantes"
-        ref={tabsRef}
+        className="tabs-diamantes animate-on-scroll"
         aria-label="Navegación de servicios"
       >
         {servicios.map((servicio, index) => (
@@ -97,49 +98,32 @@ const ServiciosCarousel = () => {
             className={`tab-diamante ${activoIndex === index ? 'activo' : ''}`}
             onClick={() => handleTabClick(index)}
             aria-label={`Seleccionar servicio: ${servicio.nombre}`}
-            aria-current={activoIndex === index ? 'true' : 'false'}
+            aria-current={activoIndex === index}
           >
             <div className="icono-rombo">
               <div className="rombo">
                 <span className="icono">{servicio.icono}</span>
               </div>
-              {activoIndex === index && <div className="flecha-rombo" />}
+              <div className="flecha-rombo" />
             </div>
             <span className="nombre-tab">{servicio.nombre}</span>
           </button>
         ))}
       </nav>
 
-      <div className="carousel-contenido">
+      <div className="carousel-contenido animate-on-scroll">
         <div
           className="carousel-wrapper"
-          style={{
-            transform:
-              window.innerWidth > 768
-                ? `translateX(-${activoIndex * 100}%)`
-                : 'none',
-          }}
-          role="region"
-          aria-live="polite"
+          style={{ transform: `translateX(-${activoIndex * 100}%)` }}
         >
           {servicios.map((servicio, index) => (
             <article
               key={servicio.id}
-              className={`carousel-panel ${
-                activoIndex === index ? 'visible' : ''
-              }`}
+              // 👇 AÑADE ESTA LÍNEA. Es el único cambio necesario en el JSX.
+              className={`carousel-panel ${activoIndex === index ? 'activo' : ''}`}
               aria-hidden={activoIndex !== index}
-              ref={(el) => (panelRefs.current[index] = el)}
-              style={{
-                display:
-                  window.innerWidth <= 768
-                    ? activoIndex === index
-                      ? 'block'
-                      : 'none'
-                    : 'block',
-              }}
             >
-              <div className="carousel-content">
+              <div className="panel-content">
                 <div className="carousel-texto">
                   <h2>{servicio.nombre}</h2>
                   <p>{servicio.descripcion}</p>

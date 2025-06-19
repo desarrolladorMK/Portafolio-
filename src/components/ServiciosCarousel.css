@@ -1,4 +1,18 @@
-/* Contenedor principal */
+/* --- ANIMACIÓN DE LA FLECHA --- */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
+/* ===================================================================== */
+/* --- ESTILOS BASE (ESCRITORIO - VERSIÓN ORIGINAL RESTAURADA) --- */
+/* ===================================================================== */
+
 .carousel-servicios {
   background: linear-gradient(
       to top,
@@ -19,7 +33,7 @@
   align-items: center;
 }
 
-/* Navegación con rombos */
+/* --- TABS (DIAMANTES) --- */
 .tabs-diamantes {
   max-width: 1000px;
   margin: 0 auto;
@@ -27,21 +41,11 @@
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem 0;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.tabs-diamantes.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .tab-diamante {
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
   text-align: center;
   position: relative;
@@ -55,6 +59,7 @@
   align-items: center;
 }
 
+/* ✨ ESTILOS ORIGINALES RESTAURADOS ✨ */
 .rombo {
   width: 50px;
   height: 50px;
@@ -64,6 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Animamos 'all' como en el original para capturar width/height */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -95,6 +101,9 @@
   border-top: 10px solid #64ffda;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   animation: bounce 0.8s ease-in-out infinite;
+  opacity: 0; /* Oculta por defecto, se activa con .activo */
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 .nombre-tab {
@@ -103,26 +112,32 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
-  transition: opacity 0.3s ease, margin 0.3s ease;
+  transition: opacity 0.3s ease, margin-top 0.3s ease;
 }
 
+/* ✨ COMPORTAMIENTO DEL TAB ACTIVO ORIGINAL RESTAURADO ✨ */
 .tab-diamante.activo .rombo {
   border-color: #64ffda;
-  width: 70px;
+  width: 70px; /* Se agranda como antes */
   height: 70px;
 }
 
 .tab-diamante.activo .icono {
-  color: #000;
+  color: #000; /* Cambia de color como antes */
   font-size: 2rem;
 }
 
 .tab-diamante.activo .nombre-tab {
-  opacity: 0;
+  opacity: 0; /* Desaparece el nombre como antes */
   margin-top: 0;
 }
 
-/* Contenido del carrusel */
+.tab-diamante.activo .flecha-rombo {
+  opacity: 1; /* Aparece la flecha */
+}
+
+
+/* --- CARRUSEL DESLIZANTE DE PC --- */
 .carousel-contenido {
   max-width: 1000px;
   margin: 3rem auto 0;
@@ -141,35 +156,30 @@
 .carousel-panel {
   flex: 0 0 100%;
   min-width: 100%;
+}
+
+/* ✨ ANIMACIÓN DE CONTENIDO DEL PANEL (Restaurada del original) ✨ */
+.panel-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   min-height: 350px;
   padding: 2rem;
-  box-sizing: border-box;
   background: rgba(10, 25, 47, 0.85);
   border-radius: 12px;
   border: 2px solid #233554;
   box-shadow: 0 0 16px 0 #64ffda33;
   color: #fff;
-  opacity: 0;
-  transition: opacity 0.6s ease-out;
-}
-
-.carousel-panel.visible {
-  opacity: 1;
-}
-
-.carousel-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  color: #fff;
+  
+  /* Estado inicial de la animación (oculto) */
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.carousel-panel.visible .carousel-content {
+/* El panel activo revela su contenido */
+.carousel-panel.activo .panel-content {
   opacity: 1;
   transform: translateY(0);
 }
@@ -178,12 +188,14 @@
   text-align: left;
   flex: 1;
   min-width: 300px;
+  
+  /* Estado inicial de la animación (oculto) */
   opacity: 0;
   transform: translateX(-50px);
   transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
 }
 
-.carousel-panel.visible .carousel-texto {
+.carousel-panel.activo .carousel-texto {
   opacity: 1;
   transform: translateX(0);
 }
@@ -204,12 +216,14 @@
   flex: 0 0 300px;
   display: flex;
   justify-content: center;
+  
+  /* Estado inicial de la animación (oculto) */
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
 }
 
-.carousel-panel.visible .carousel-img {
+.carousel-panel.activo .carousel-img {
   opacity: 1;
   transform: scale(1);
 }
@@ -221,80 +235,91 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Animaciones */
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(5px);
-  }
-}
 
-/* Responsividad */
+/* =================================================================== */
+/* --- RESPONSIVIDAD (VERSIÓN FLUIDA DE CELULAR - SIN CAMBIOS) --- */
+/* =================================================================== */
 @media (max-width: 768px) {
-  .carousel-wrapper {
-    transform: none !important; /* Desactiva translateX en móvil */
-    flex-direction: column;
+  
+  /* Hacemos los tabs un poco más pequeños para móvil */
+  .tabs-diamantes {
+    gap: 1rem;
   }
-
-  .carousel-panel {
-    min-height: auto;
-    display: none;
-  }
-
-  .carousel-panel.visible {
-    display: block;
-  }
-
-  .carousel-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .carousel-texto {
-    text-align: center;
-    min-width: auto;
-  }
-
-  .carousel-img {
-    margin-top: 1rem;
-    max-width: 250px;
-  }
-
-  .tab-diamante .rombo {
+  .rombo {
     width: 40px;
     height: 40px;
   }
-
-  .tab-diamante .icono {
+  .icono {
     font-size: 1.2rem;
   }
-
-  .tab-diamante .nombre-tab {
+  .nombre-tab {
+    margin-top: 0.5rem;
     font-size: 0.8rem;
   }
 
+  /* Anulamos el comportamiento de PC y creamos el de móvil */
   .tab-diamante.activo .rombo {
-    width: 60px;
+    width: 60px; /* Agrandamos un poco, pero no tanto como en PC */
     height: 60px;
   }
-
   .tab-diamante.activo .icono {
+    color: #64ffda; /* En móvil, el icono no cambia de color */
     font-size: 1.8rem;
   }
-
+  .tab-diamante.activo .nombre-tab {
+    opacity: 1; /* El nombre NO desaparece */
+    margin-top: 0.5rem; /* Mantenemos el margen */
+    color: #64ffda; /* Solo cambia de color */
+  }
   .flecha-rombo {
     display: none;
   }
 
-  .carousel-texto h2 {
-    font-size: 1.5rem;
+  /* --- CROSS-FADE DE ALTO RENDIMIENTO PARA MÓVIL --- */
+  .carousel-contenido {
+    margin-top: 1.5rem;
+    overflow: visible;
   }
-
-  .carousel-texto p {
-    font-size: 0.9rem;
+  .carousel-wrapper {
+    display: grid;
+    transform: none !important;
+  }
+  .carousel-panel {
+    grid-area: 1 / 1 / 2 / 2; 
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
+  }
+  .carousel-panel.activo {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .panel-content,
+  .carousel-panel.activo .panel-content,
+  .carousel-texto,
+  .carousel-panel.activo .carousel-texto,
+  .carousel-img,
+  .carousel-panel.activo .carousel-img {
+    /* Reseteamos todas las animaciones de PC para la vista móvil */
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .panel-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    min-height: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .carousel-texto {
+    order: 2;
+  }
+  .carousel-img {
+    order: 1;
+    max-width: 250px;
   }
 }
