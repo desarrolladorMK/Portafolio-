@@ -11,60 +11,81 @@
   text-align: center;
   color: #fff;
   min-width: 0;
+  overflow-x: hidden;
+}
+
+/* Animación de entrada para el título */
+.skills-section .section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.skills-section .section-title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skills-cards-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: stretch; /* Asegura que los items se estiren si el contenedor tiene altura */
   gap: 48px;
-  min-width: 0;
-  width: 100%;
   max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  margin: 40px auto 0;
 }
 
 .skills-card.improved {
-  background: #000;
-  border: 2px solid #233554;
+  background: #0a192f;
+  border: 1px solid #233554;
   border-radius: 18px;
-  box-shadow: 0 0 24px 0 #64ffda22;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   padding: 32px 36px;
-  width: 340px;
-  min-width: 220px;
+  width: 380px;
   max-width: 100%;
-  box-sizing: border-box;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  text-align: center;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  text-align: center;
+  
+  /* --- SOLUCIÓN PARA IGUALAR ALTURA --- */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-left: 0;
-  margin-right: 0;
+
+  /* --- ANIMACIÓN DE ENTRADA --- */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.6s ease-out, opacity 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Delay para la segunda tarjeta para un efecto escalonado */
+.skills-card.improved:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.skills-card.improved.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-card.improved:hover {
+    border-color: #64ffda;
+    transform: translateY(-5px) !important; /* !important para sobreescribir la animación de entrada */
 }
 
 .skills-card.improved::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 212, 255, 0.22) 0%,
-    transparent 50%
+    rgba(100, 255, 218, 0.1) 0%,
+    transparent 40%
   );
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
   z-index: 1;
 }
 
@@ -78,137 +99,76 @@
 }
 
 .skills-category {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #b2becd;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ccd6f6;
   margin-bottom: 24px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 8px #64ffda44;
 }
 
 .skills-icons.improved {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   gap: 28px 18px;
   justify-items: center;
+  width: 100%;
+  
+  /* --- SOLUCIÓN PARA IGUALAR ALTURA (PARTE 2) --- */
+  flex-grow: 1; /* Hace que este contenedor crezca y ocupe el espacio extra */
 }
 
 .skills-icons.improved span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #b2becd;
-  font-size: 1rem;
-  transition: color 0.2s;
+  color: #8892b0;
+  font-size: 0.9rem;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .skills-icons.improved img {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   margin-bottom: 8px;
-  filter: none;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease;
 }
 
 .skills-icons.improved img[alt="GitHub"],
 .skills-icons.improved img[alt="Terminal"],
 .skills-icons.improved img[alt="Vercel"] {
-  filter: brightness(0) invert(1);
-}
-
-.skills-icons.improved span:hover img {
-  transform: scale(1.15) rotate(-8deg);
+  filter: brightness(0) invert(1) opacity(0.8);
 }
 
 .skills-icons.improved span:hover {
   color: #64ffda;
+  transform: translateY(-4px);
 }
 
-@media (max-width: 1100px) {
-  .skills-cards-wrapper {
-    gap: 32px;
-    max-width: 98vw;
-  }
-  .skills-card.improved {
-    width: 90vw;
-    max-width: 420px;
-    padding: 28px 6vw;
-  }
-}
-
+/* Media Queries (Ajustados para consistencia) */
 @media (max-width: 900px) {
   .skills-cards-wrapper {
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    width: 100vw;
-    max-width: 100vw;
-    padding-left: 12px;
-    padding-right: 12px;
   }
   .skills-card.improved {
-    width: 95vw;
-    max-width: 400px;
-    min-width: 0;
-    padding: 24px 4vw;
-    margin-left: 0;
-    margin-right: 0;
+    width: 90%;
+    max-width: 450px;
   }
 }
 
 @media (max-width: 600px) {
   .skills-section {
-    padding: 30px 1px 30px;
-  }
-  .skills-cards-wrapper {
-    gap: 18px;
-    width: 100vw;
-    max-width: 100vw;
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-  .skills-card.improved {
-    width: 96vw;
-    max-width: 340px;
-    min-width: 0;
-    padding: 12px 2vw;
-    border-radius: 12px;
-    margin-left: 0;
-    margin-right: 0;
+    padding: 40px 15px;
   }
   .skills-category {
-    font-size: 1.1rem;
-    margin-bottom: 14px;
-  }
-  .skills-icons.improved img {
-    width: 32px;
-    height: 32px;
+    font-size: 1.4rem;
   }
   .skills-icons.improved {
-    gap: 14px 8px;
-  }
-}
-
-@media (max-width: 400px) {
-  .skills-cards-wrapper {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-  .skills-card.improved {
-    width: 94vw;
-    max-width: 98vw;
-    min-width: 0;
-    padding: 8px 1vw;
-    border-radius: 8px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .skills-category {
-    font-size: 1rem;
-    margin-bottom: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 24px 12px;
   }
   .skills-icons.improved img {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
   }
 }
