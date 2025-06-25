@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="footer-left">
           <img
             ref={logoRef}
-            src="/logoDV.png"
+            src="/logoDV.webp"
             alt="stelarCode Logo"
             className="footer-logo-img"
             loading="lazy"

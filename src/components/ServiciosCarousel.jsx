@@ -9,7 +9,7 @@ const servicios = [
     icono: '🧠',
     descripcion:
       'Transforma tus ideas en soluciones digitales únicas y potentes. Creamos software personalizado que se adapta a las necesidades de tu negocio, con interfaces intuitivas y tecnología robusta para mejorar tu productividad, agilizar procesos y brindarte un control total.',
-    imagen: '/software.png',
+    imagen: '/software.webp',
   },
   {
     id: 'automatizacion',
@@ -17,7 +17,7 @@ const servicios = [
     icono: '⚙️',
     descripcion:
       'Lleva tus procesos internos al siguiente nivel. Diseñamos e implementamos sistemas de automatización que eliminan tareas repetitivas, reducen errores y aumentan la eficiencia de tu equipo. Con paneles administrativos personalizados, tendrás una visión clara y control total de tus operaciones.',
-    imagen: '/automatizacion.png',
+    imagen: '/automatizacion.webp',
   },
   {
     id: 'marketing',
@@ -25,7 +25,7 @@ const servicios = [
     icono: '🚀',
     descripcion:
       'Impulsa la visibilidad de tu negocio con estrategias de marketing digital efectivas y personalizadas. Creamos campañas impactantes que conectan con tu audiencia, optimizamos tu presencia en redes sociales y utilizamos análisis de datos para maximizar tus resultados. Desde el posicionamiento de tu marca hasta la conversión de leads, llevamos tu negocio al siguiente nivel con creatividad e innovación.',
-    imagen: '/marketing.png',
+    imagen: '/marketing.webp',
   },
   {
     id: 'seo',
@@ -33,7 +33,7 @@ const servicios = [
     icono: '📈',
     descripcion:
       'Haz que te encuentren justo cuando más te necesitan. Con estrategias SEO efectivas y a medida, mejoramos la visibilidad de tu negocio en Google, posicionándote en los primeros resultados y atrayendo más visitantes que se convierten en clientes reales.',
-    imagen: '/seo.png',
+    imagen: '/seo.webp',
   },
 ];
 

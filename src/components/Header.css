@@ -17,7 +17,7 @@
       rgba(1, 14, 34, 0.85) 60%,
       rgba(1, 14, 34, 0.98) 100%
     ),
-    url("/banner.jpg") center/cover no-repeat;
+    url("/banner.webp") center/cover no-repeat;
   background-blend-mode: overlay, normal;
   transition: background-color 0.1s ease-out;
   overflow: hidden;

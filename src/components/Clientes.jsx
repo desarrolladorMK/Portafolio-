@@ -8,7 +8,7 @@ const clientes = [
     nombre: "Merkahorro",
   },
   {
-    logo: "/credi.jpg",
+    logo: "/credi.webp",
     url: "https://crediplas.com",
     nombre: "Crediplas",
   },

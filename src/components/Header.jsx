@@ -122,7 +122,7 @@ const Header = () => {
           <div className="logo" onClick={handleLogoClick}> {/* Agregamos onClick aquí */}
             <Link to="/">
               <img
-                src="/logoDV.png"
+                src="/logoDV.webp"
                 alt="stelarCode Logo"
                 className="logo-img"
               />
