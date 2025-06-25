@@ -1,5 +1,10 @@
+/* ==========================================================================
+   Sección de Proyectos - Estilos Completos y Corregidos
+   ========================================================================== */
+
+/* --- Contenedor Principal y Fondo --- */
 .proyectos-section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   color: #fff;
   text-align: center;
   position: relative;
@@ -12,90 +17,43 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><circle cx="50" cy="80" r="2" fill="#64ffda" opacity="0.6"/><circle cx="150" cy="250" r="3" fill="#64ffda" opacity="0.8"/><circle cx="300" cy="100" r="2" fill="#64ffda" opacity="0.5"/><circle cx="450" cy="350" r="3" fill="#64ffda" opacity="0.7"/><circle cx="600" cy="150" r="2" fill="#64ffda" opacity="0.4"/><circle cx="750" cy="300" r="3" fill="#64ffda" opacity="0.6"/></svg>')
-    no-repeat center;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><circle cx="50" cy="80" r="2" fill="%2364ffda" opacity="0.6"/><circle cx="150" cy="250" r="3" fill="%2364ffda" opacity="0.8"/><circle cx="300" cy="100" r="2" fill="%2364ffda" opacity="0.5"/><circle cx="450" cy="350" r="3" fill="%2364ffda" opacity="0.7"/><circle cx="600" cy="150" r="2" fill="%2364ffda" opacity="0.4"/><circle cx="750" cy="300" r="3" fill="%2364ffda" opacity="0.6"/></svg>')
+    no-repeat center center;
   background-size: cover;
-  animation: twinkle 5s infinite ease-in-out;
+  animation: twinkle 10s infinite alternate;
   z-index: 0;
 }
 
 @keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.9;
-  }
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
 }
 
-.proyectos-section.active .section-title,
-.proyectos-section.active .proyecto-card {
-  animation-play-state: running;
+/* --- Título de la Sección (Corregido para no afectar otros títulos) --- */
+.proyectos-section .section-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
 
-.section-title.active {
+.proyectos-section .section-title.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* --- Parrilla de Proyectos --- */
 .proyectos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   position: relative;
   z-index: 1;
-  min-width: 0;
-  align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
 }
 
-@media (max-width: 900px) {
-  .proyectos-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 98vw;
-    align-items: stretch;
-  }
-  .proyecto-card {
-    max-width: 98vw;
-    min-height: 380px;
-    max-height: 480px;
-  }
-}
-
-@media (max-width: 600px) {
-  .proyectos-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    max-width: 99vw;
-    align-items: stretch;
-  }
-  .proyecto-card {
-    max-width: 99vw;
-    margin: 0 auto;
-    min-height: 340px;
-    max-height: 440px;
-  }
-  .proyecto-img img {
-    height: 140px;
-    min-height: 140px;
-    max-height: 140px;
-  }
-  .proyecto-info {
-    padding: 14px;
-  }
-  .proyecto-info h2 {
-    font-size: 1.1rem;
-    min-height: 32px;
-  }
-  .btn-ver {
-    padding: 8px 12px;
-    font-size: 0.97rem;
-  }
-}
-
+/* --- Tarjeta de Proyecto (Estilo Original Restaurado + Optimizaciones) --- */
 .proyecto-card {
   background: rgba(10, 25, 47, 0.9);
   border: 2px solid #233554;
@@ -103,34 +61,36 @@
   overflow: hidden;
   color: #fff;
   box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+
+  /* Animación de entrada con el desenfoque original */
   opacity: 0;
   transform: translateY(40px) scale(0.97);
   filter: blur(8px);
-  pointer-events: none;
   transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  height: 100%; /* Ocupa todo el alto de la celda */
-  min-height: 420px; /* Altura mínima consistente */
-  max-height: 520px; /* Altura máxima opcional para evitar tarjetas gigantes */
-  box-sizing: border-box;
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease, 
+              border-color 0.4s ease;
+  will-change: opacity, transform, filter;
 }
 
-.proyecto-card.active {
+.proyecto-card.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
-  pointer-events: auto;
 }
 
 .proyecto-card:hover {
   box-shadow: 0 0 40px rgba(100, 255, 218, 0.5);
   border-color: #64ffda;
+  transform: translateY(0);
 }
 
+/* Efecto de luz radial en el hover */
 .proyecto-card::before {
   content: "";
   position: absolute;
@@ -144,11 +104,12 @@
     transparent 50%
   );
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s ease-out;
   z-index: 1;
+  pointer-events: none;
 }
 
-.proyecto-card.is-hovered::before {
+.proyecto-card:hover::before {
   opacity: 1;
 }
 
@@ -162,14 +123,12 @@
   height: 220px;
   object-fit: cover;
   border-bottom: 1px solid #233554;
-  min-height: 220px;
-  max-height: 220px;
 }
 
 .proyecto-info {
   padding: 24px;
   text-align: left;
-  flex: 1 1 auto;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -179,185 +138,134 @@
   font-size: 1.5rem;
   color: #64ffda;
   margin-bottom: 12px;
-  text-shadow: 0 0 8px #64ffda66;
+  text-shadow: 0 0 8px rgba(100, 255, 218, 0.4);
   min-height: 48px;
-  display: flex;
-  align-items: center;
 }
 
 .btn-ver {
   display: inline-block;
   background: #64ffda;
-  color: #000;
+  color: #0a192f;
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s, color 0.3s, transform 0.3s;
-  border: none; /* Remove default border */
+  border: none;
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .btn-ver:hover {
   background: #233554;
   color: #64ffda;
   transform: scale(1.05);
-  border: none; /* Ensure no border on hover */
 }
 
 .btn-ver.disabled {
   background: #233554;
-  color: #b2becd;
+  color: #8892b0;
   cursor: not-allowed;
-  opacity: 0.7;
-  border: none; /* Remove border for disabled state */
+  transform: none;
 }
 
+/* --- Modal (Contenedor, Contenido e Imagen Corregida) --- */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  inset: 0;
+  background: rgba(10, 25, 47, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .modal-content {
-  background: rgba(10, 25, 47, 0.95);
-  border: 2px solid #233554;
-  border-radius: 16px;
-  padding: 40px;
-  max-width: 700px;
+  background: #112240;
+  border: 1px solid #233554;
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 650px;
   width: 90%;
-  box-shadow: 0 0 40px rgba(100, 255, 218, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   position: relative;
-  text-align: left;
-  color: #fff;
-  backdrop-filter: blur(6px);
-  transform: scale(0.8);
+  color: #ccd6f6;
+  transform: scale(0.95);
   opacity: 0;
-  animation: scaleIn 0.5s ease-out forwards;
-  display: flex;
-  flex-direction: column;
+  animation: scaleIn 0.3s ease-out 0.1s forwards;
   max-height: 90vh;
-  overflow: hidden; /* No scroll en el modal */
+  overflow-y: auto;
+  will-change: transform, opacity;
 }
 
 .modal-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
   color: #64ffda;
-  text-shadow: 0 0 10px #64ffda66;
 }
 
 .modal-content p {
-  font-size: 1.1rem;
-  color: #b2becd;
+  font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 24px;
-  max-height: none;
-  overflow: visible;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de la imagen del modal corregido */
+.modal-img {
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #0a192f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen del modal corregida para que no se desborde */
+.modal-img img {
+  width: 100%;
+  display: block;
 }
 
 .modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 1.4rem;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: #64ffda;
+  color: #ccd6f6;
   transition: color 0.3s, transform 0.3s;
 }
 
 .modal-close:hover {
-  color: #fff;
-  transform: scale(1.2);
+  color: #64ffda;
+  transform: rotate(90deg);
 }
 
-.modal-img {
-  margin: 24px 0;
-  text-align: center;
-}
-
-.modal-img img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes fadeInSlide {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* --- Animaciones y Media Queries --- */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
 
 @keyframes scaleIn {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2.4rem;
+  .proyectos-section {
+    padding: 60px 15px;
   }
+
   .proyectos-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 25px;
   }
-  .proyecto-card {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .proyecto-img img {
-    height: 180px;
-  }
-  .modal-content {
-    padding: 24px;
-    max-width: 90%;
-    max-height: 80vh;
-    min-height: 320px;
-    overflow: hidden; /* No scroll en el modal */
-    display: flex;
-    flex-direction: column;
-  }
-  .modal-content h2 {
-    font-size: 1.6rem;
-  }
-  .modal-content p {
-    max-height: 120px;
-    overflow-y: auto; /* Solo el texto tiene scroll */
-    margin-bottom: 24px;
-    padding-right: 4px;
-  }
-}
 
-/* Opcional: mejora la apariencia del scrollbar en móviles */
-@media (max-width: 768px) {
-  .modal-content p::-webkit-scrollbar {
-    width: 4px;
-    background: #233554;
-  }
-  .modal-content p::-webkit-scrollbar-thumb {
-    background: #64ffda;
-    border-radius: 2px;
+  .modal-content {
+    padding: 25px;
   }
 }
