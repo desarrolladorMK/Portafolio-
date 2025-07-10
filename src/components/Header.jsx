@@ -78,7 +78,7 @@ const Header = () => {
       <nav className={`fixed-nav ${showFixedNav ? "visible" : ""}`}>
         <div className="nav-content">
           <a href="/" className="nav-logo">
-            stelarCode
+            stelarcode
           </a>
           <div className="nav-links">
             <a

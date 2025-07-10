@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./Contacto.css";
 
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
+    acceptPolicies: false,
   });
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,13 +23,16 @@ export default function ContactForm() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     // Restricciones de longitud
     if (name === "name" && value.length > 70) return;
     if (name === "message" && value.length > 500) return;
     if (name === "phone" && !/^[0-9]*$/.test(value)) return; // Solo números
 
-    setFormData({ ...formData, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
 
     // Validaciones en tiempo real
     if (name === "email") {
@@ -42,6 +45,12 @@ export default function ContactForm() {
       setErrors((prev) => ({
         ...prev,
         phone: validatePhone(value) || value === "" ? "" : "Número inválido",
+      }));
+    }
+    if (name === "acceptPolicies") {
+      setErrors((prev) => ({
+        ...prev,
+        acceptPolicies: checked ? "" : "Debes aceptar las políticas",
       }));
     }
   };
@@ -68,6 +77,10 @@ export default function ContactForm() {
       newErrors.message = "Máximo 500 caracteres";
       valid = false;
     }
+    if (!formData.acceptPolicies) {
+      newErrors.acceptPolicies = "Debes aceptar las políticas";
+      valid = false;
+    }
 
     setErrors(newErrors);
     if (!valid) return;
@@ -85,7 +98,13 @@ export default function ContactForm() {
       const result = await response.json();
       if (response.ok) {
         setStatus("¡Formulario enviado con éxito!");
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          acceptPolicies: false,
+        });
       } else {
         setStatus(`Error: ${result.error}`);
       }
@@ -142,6 +161,19 @@ export default function ContactForm() {
           required
         ></textarea>
         {errors.message && <span className="error">{errors.message}</span>}
+        <label className="policies-checkbox">
+          <input
+            type="checkbox"
+            name="acceptPolicies"
+            checked={formData.acceptPolicies}
+            onChange={handleChange}
+            required
+          />
+          Autorizo el <a href="/politicas" target="_blank">tratamiento de mis datos personales</a>
+        </label>
+        {errors.acceptPolicies && (
+          <span className="error">{errors.acceptPolicies}</span>
+        )}
         <button type="submit">Enviar</button>
       </form>
       {status && <p>{status}</p>}

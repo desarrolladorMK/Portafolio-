@@ -1,0 +1,176 @@
+/* Estilos existentes (asumidos, ya que no proporcionaste el contenido original) */
+.footer {
+  background-color: hsl(220, 81%, 45%); /* Ejemplo: bg-gray-800 */
+  padding: 2rem; /* Ejemplo: p-8 */
+  color: #e2e8f0; /* Ejemplo: text-gray-200 */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+}
+
+.footer-logo-img {
+  width: 50px; /* Ejemplo */
+  height: auto;
+}
+
+.footer-brand {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-copy {
+  font-size: 0.9rem; /* text-sm */
+  opacity: 0.8;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+}
+
+/* Estilo para el correo (existente) */
+.footer-email {
+  color: #64ffda; /* Color original */
+  text-decoration: none;
+  font-weight: 500; /* font-medium */
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+/* Nuevo estilo para el enlace de políticas */
+.footer-policy {
+  color: #64ffda; /* Igual que footer-email */
+  text-decoration: none;
+  font-weight: 500; /* font-medium */
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-policy:hover {
+  color: #aaf0df; /* Igual que footer-email en hover */
+}
+
+/* Nuevos estilos para la sección de políticas */
+.politicas-container {
+  max-width: 900px;
+  margin: 48px auto 48px auto;
+  padding: 32px 18px 40px 18px;
+  background: rgba(10, 25, 47, 0.97);
+  border-radius: 16px;
+  box-shadow: 0 2px 24px #64ffda18;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-size: 1.07rem;
+  line-height: 1.7;
+}
+
+.politicas-title {
+  color: #64ffda;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 12px #64ffda22;
+}
+
+.politicas-section {
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #23355433;
+}
+
+.politicas-section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  color: #aaf0df;
+  font-size: 1.18rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.section-text {
+  color: #b2becd;
+  margin-bottom: 10px;
+}
+
+.section-list {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  color: #e2e8f0;
+  font-size: 1rem;
+  list-style: disc inside;
+}
+
+.section-list li {
+  margin-bottom: 5px;
+  padding-left: 2px;
+}
+
+.section-link {
+  color: #64ffda;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.section-link:hover {
+  color: #aaf0df;
+}
+
+@media (max-width: 700px) {
+  .politicas-container {
+    max-width: 98vw;
+    padding: 18px 2vw 24px 2vw;
+    font-size: 0.98rem;
+  }
+  .politicas-title {
+    font-size: 1.3rem;
+  }
+  .section-title {
+    font-size: 1.05rem;
+  }
+}
+.policies-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.policies-checkbox input {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.policies-checkbox a {
+   color: #64ffda;
+  text-decoration: none;
+}
+
+.policies-checkbox a:hover {
+  text-decoration: underline;
+}

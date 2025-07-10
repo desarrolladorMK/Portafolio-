@@ -42,7 +42,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: #64ffda;
-  letter-spacing: 1px;
+  letterSpacing: 1px;
 }
 
 .footer-right {
@@ -57,6 +57,19 @@
   font-size: 0.98rem;
   color: #b2becd;
   margin-left: 1rem;
+}
+
+.footer-data {
+  color: #64ffda;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  margin-left: 16px;
+}
+
+.footer-data:hover {
+  color: #aaf0df;
 }
 
 @media (max-width: 600px) {
@@ -79,8 +92,12 @@
   }
   .footer-contact {
     text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  .footer-email {
+  .footer-email,
+  .footer-data {
     margin-left: 0 !important;
   }
 }

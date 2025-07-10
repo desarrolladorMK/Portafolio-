@@ -7,6 +7,7 @@ const Footer = () => {
   const brandRef = useRef(null);
   const copyRef = useRef(null);
   const emailRef = useRef(null);
+  const dataRef = useRef(null);
 
   useEffect(() => {
     // GSAP animations for footer elements
@@ -29,6 +30,11 @@ const Footer = () => {
       emailRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.6 }
+    );
+    gsap.fromTo(
+      dataRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.8 }
     );
   }, []);
 
@@ -96,7 +102,38 @@ const Footer = () => {
                 })
               }
             >
-              stelarcode1@gmail.com
+              stelarcode1@gmail.coms
+            </a>
+            <a
+              ref={dataRef}
+              href="/politicas"
+              className="footer-data"
+              style={{
+                color: "#64ffda",
+                textDecoration: "none",
+                fontWeight: 500,
+                fontSize: '1.05rem',
+                letterSpacing: '0.5px',
+                marginLeft: 16
+              }}
+              onMouseEnter={() =>
+                gsap.to(dataRef.current, {
+                  color: "#aaf0df",
+                  scale: 1.05,
+                  duration: 0.3,
+                  ease: "power2.out",
+                })
+              }
+              onMouseLeave={() =>
+                gsap.to(dataRef.current, {
+                  color: "#64ffda",
+                  scale: 1,
+                  duration: 0.3,
+                  ease: "power2.out",
+                })
+              }
+            >
+              Política de Privacidad
             </a>
           </div>
         </div>
@@ -104,7 +141,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-
 
 export default Footer;
