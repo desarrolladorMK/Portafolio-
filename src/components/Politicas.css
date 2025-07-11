@@ -102,7 +102,7 @@
   border-bottom: none;
 }
 
-.section-title {
+.section-title-politicas {
   color: #aaf0df;
   font-size: 1.18rem;
   margin-bottom: 8px;
@@ -147,7 +147,7 @@
   .politicas-title {
     font-size: 1.3rem;
   }
-  .section-title {
+  .section-title-politicas {
     font-size: 1.05rem;
   }
 }

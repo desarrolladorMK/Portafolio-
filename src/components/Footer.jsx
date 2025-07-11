@@ -102,7 +102,7 @@ const Footer = () => {
                 })
               }
             >
-              stelarcode1@gmail.coms
+              stelarcode1@gmail.com
             </a>
             <a
               ref={dataRef}

@@ -8,14 +8,14 @@ const Politicas = () => {
       <h1 className="politicas-title">Política de Tratamiento de Datos Personales</h1>
       
       <section className="politicas-section">
-        <h2 className="section-title">1. Introducción</h2>
+        <h2 className="section-title-politicas">1. Introducción</h2>
         <p className="section-text">
           En <strong>STELARCODE</strong>, nos comprometemos a proteger la privacidad y los datos personales de nuestros usuarios. Esta Política de Tratamiento de Datos Personales describe cómo recopilamos, usamos, almacenamos y protegemos la información personal que nos proporcionas a través de nuestro sitio web, específicamente mediante el formulario de contacto.
         </p>
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">2. Finalidad de la Recopilación de Datos</h2>
+        <h2 className="section-title-politicas">2. Finalidad de la Recopilación de Datos</h2>
         <p className="section-text">Los datos personales recopilados a través del formulario de contacto tienen las siguientes finalidades:</p>
         <ul className="section-list">
           <li>Contactar a los usuarios para responder a sus consultas, solicitudes o comentarios.</li>
@@ -25,7 +25,7 @@ const Politicas = () => {
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">3. Datos Recopilados</h2>
+        <h2 className="section-title-politicas">3. Datos Recopilados</h2>
         <p className="section-text">
           A través del formulario de contacto, podemos recopilar los siguientes datos personales:
         </p>
@@ -41,7 +41,7 @@ const Politicas = () => {
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">4. Base Legal para el Tratamiento</h2>
+        <h2 className="section-title-politicas">4. Base Legal para el Tratamiento</h2>
         <p className="section-text">El tratamiento de los datos personales se basa en:</p>
         <ul className="section-list">
           <li><strong>Consentimiento</strong>: Al completar el formulario, el usuario acepta explícitamente esta política de tratamiento de datos mediante una casilla de verificación.</li>
@@ -51,7 +51,7 @@ const Politicas = () => {
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">5. Almacenamiento y Seguridad</h2>
+        <h2 className="section-title-politicas">5. Almacenamiento y Seguridad</h2>
         <ul className="section-list">
           <li><strong>Almacenamiento</strong>: Los datos personales se almacenan en servidores seguros, ya sea en nuestras propias instalaciones o en servicios de terceros que cumplen con estándares de seguridad reconocidos.</li>
           <li><strong>Seguridad</strong>: Implementamos medidas técnicas y organizativas para proteger los datos contra accesos no autorizados, pérdida, alteración o divulgación, incluyendo encriptación y controles de acceso.</li>
@@ -60,7 +60,7 @@ const Politicas = () => {
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">6. Derechos de los Titulares de los Datos</h2>
+        <h2 className="section-title-politicas">6. Derechos de los Titulares de los Datos</h2>
         <p className="section-text">
           De acuerdo con la Ley 1581 de 2012, los usuarios tienen los siguientes derechos sobre sus datos personales:
         </p>
@@ -78,7 +78,7 @@ const Politicas = () => {
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">7. Transferencia de Datos</h2>
+        <h2 className="section-title-politicas">7. Transferencia de Datos</h2>
         <p className="section-text">
           No compartimos los datos personales con terceros, salvo en los siguientes casos:
         </p>
@@ -94,14 +94,14 @@ const Politicas = () => {
 
 
       <section className="politicas-section">
-        <h2 className="section-title">8. Modificaciones a la Política</h2>
+        <h2 className="section-title-politicas">8. Modificaciones a la Política</h2>
         <p className="section-text">
           Nos reservamos el derecho de actualizar esta política para adaptarla a cambios legislativos, nuevas funcionalidades del sitio web o mejoras en nuestras prácticas de privacidad. Cualquier cambio será comunicado a los usuarios a través del sitio web o por correo electrónico, según corresponda.
         </p>
       </section>
 
       <section className="politicas-section">
-        <h2 className="section-title">9. Contacto y Responsable del Tratamiento</h2>
+        <h2 className="section-title-politicas">9. Contacto y Responsable del Tratamiento</h2>
         <p className="section-text">
           <strong>Responsable del Tratamiento de Datos</strong>: Para cualquier solicitud relacionada con sus datos personales, como consultas, rectificaciones, supresiones o revocación del consentimiento, contáctenos en:
         </p>
